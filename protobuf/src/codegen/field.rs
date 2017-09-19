@@ -1944,20 +1944,20 @@ impl<'a> FieldGen<'a> {
             self.write_message_field_mut(w);
         }
 
-        if self.has_take() {
-            w.write_line("");
-            self.write_message_field_take(w);
-        }
+//        if self.has_take() {
+//            w.write_line("");
+//            self.write_message_field_take(w);
+//        }
 
         w.write_line("");
         self.write_message_field_get(w);
 
-        if self.accessor_fn().for_reflect_suffix {
-            w.write_line("");
-            self.write_message_field_get_for_reflect(w);
-            w.write_line("");
-            self.write_message_field_mut_for_reflect(w);
-        }
+//        if self.accessor_fn().for_reflect_suffix {
+//            w.write_line("");
+//            self.write_message_field_get_for_reflect(w);
+//            w.write_line("");
+//            self.write_message_field_mut_for_reflect(w);
+//        }
     }
 }
 

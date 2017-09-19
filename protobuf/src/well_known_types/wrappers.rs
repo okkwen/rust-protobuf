@@ -135,9 +135,9 @@ impl ::protobuf::Message for DoubleValue {
         self
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for DoubleValue {
@@ -301,9 +301,9 @@ impl ::protobuf::Message for FloatValue {
         self
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for FloatValue {
@@ -467,9 +467,9 @@ impl ::protobuf::Message for Int64Value {
         self
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for Int64Value {
@@ -633,9 +633,9 @@ impl ::protobuf::Message for UInt64Value {
         self
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for UInt64Value {
@@ -799,9 +799,9 @@ impl ::protobuf::Message for Int32Value {
         self
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for Int32Value {
@@ -965,9 +965,9 @@ impl ::protobuf::Message for UInt32Value {
         self
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for UInt32Value {
@@ -1131,9 +1131,9 @@ impl ::protobuf::Message for BoolValue {
         self
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for BoolValue {
@@ -1304,9 +1304,9 @@ impl ::protobuf::Message for StringValue {
         self
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for StringValue {
@@ -1477,9 +1477,9 @@ impl ::protobuf::Message for BytesValue {
         self
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for BytesValue {

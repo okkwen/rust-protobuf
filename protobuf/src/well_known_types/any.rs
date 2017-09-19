@@ -186,9 +186,9 @@ impl ::protobuf::Message for Any {
         self
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for Any {

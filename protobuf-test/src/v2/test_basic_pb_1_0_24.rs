@@ -145,9 +145,9 @@ impl ::protobuf::Message for Test1 {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for Test1 {
@@ -331,9 +331,9 @@ impl ::protobuf::Message for Test2 {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for Test2 {
@@ -517,9 +517,9 @@ impl ::protobuf::Message for Test3 {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for Test3 {
@@ -694,9 +694,9 @@ impl ::protobuf::Message for Test4 {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for Test4 {
@@ -906,9 +906,9 @@ impl ::protobuf::Message for TestPackedUnpacked {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestPackedUnpacked {
@@ -1081,9 +1081,9 @@ impl ::protobuf::Message for TestEmpty {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestEmpty {
@@ -1254,9 +1254,9 @@ impl ::protobuf::Message for TestRequired {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestRequired {
@@ -1427,9 +1427,9 @@ impl ::protobuf::Message for TestUnknownFields {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestUnknownFields {
@@ -1660,9 +1660,9 @@ impl ::protobuf::Message for TestSelfReference {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestSelfReference {
@@ -1850,9 +1850,9 @@ impl ::protobuf::Message for TestDefaultInstanceField {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestDefaultInstanceField {
@@ -2033,9 +2033,9 @@ impl ::protobuf::Message for TestDefaultInstance {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestDefaultInstance {
@@ -2203,9 +2203,9 @@ impl ::protobuf::Message for TestDescriptor {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestDescriptor {
@@ -2909,9 +2909,9 @@ impl ::protobuf::Message for TestTypesSingular {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestTypesSingular {
@@ -3712,9 +3712,9 @@ impl ::protobuf::Message for TestTypesRepeated {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestTypesRepeated {
@@ -4583,9 +4583,9 @@ impl ::protobuf::Message for TestTypesRepeatedPacked {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestTypesRepeatedPacked {
@@ -5412,9 +5412,9 @@ impl ::protobuf::Message for TestDefaultValues {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestDefaultValues {
@@ -5864,9 +5864,9 @@ impl ::protobuf::Message for TestExtremeDefaultValues {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestExtremeDefaultValues {
@@ -6034,9 +6034,9 @@ impl ::protobuf::Message for TestInvalidTag {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestInvalidTag {
@@ -6204,9 +6204,9 @@ impl ::protobuf::Message for TestTruncated {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestTruncated {
@@ -6407,9 +6407,9 @@ impl ::protobuf::Message for TestBugSint {
         self as &::std::any::Any
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for TestBugSint {

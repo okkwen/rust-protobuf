@@ -315,10 +315,10 @@ impl<'a> MessageGen<'a> {
             w.def_fn("into_any(self: Box<Self>) -> ::std::boxed::Box<::std::any::Any>", |w| {
                 w.write_line("self");
             });
-            w.write_line("");
-            w.def_fn("descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor", |w| {
-                w.write_line("::protobuf::MessageStatic::descriptor_static(None::<Self>)");
-            });
+//            w.write_line("");
+//            w.def_fn("descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor", |w| {
+//                w.write_line("::protobuf::MessageStatic::descriptor_static(None::<Self>)");
+//            });
         });
     }
 
@@ -329,7 +329,7 @@ impl<'a> MessageGen<'a> {
             });
             if !self.lite_runtime {
                 w.write_line("");
-                self.write_descriptor_static(w);
+//                self.write_descriptor_static(w);
             }
         });
     }
@@ -377,21 +377,22 @@ impl<'a> MessageGen<'a> {
                     if field.proto_type == FieldDescriptorProto_Type::TYPE_GROUP {
                         w.comment(&format!("{}: <group>", &field.rust_name));
                     } else {
-                        let vis = if field.expose_field {
-                            Visibility::Public
-                        } else {
-                            match field.kind {
-                                FieldKind::Repeated(..) => Visibility::Default,
-                                FieldKind::Singular(SingularField { ref flag, .. }) => {
-                                    match *flag {
-                                        SingularFieldFlag::WithFlag { .. } => Visibility::Default,
-                                        SingularFieldFlag::WithoutFlag => Visibility::Public,
-                                    }
-                                }
-                                FieldKind::Map(..) => Visibility::Public,
-                                FieldKind::Oneof(..) => unreachable!(),
-                            }
-                        };
+//                        let vis = if field.expose_field {
+//                            Visibility::Public
+//                        } else {
+//                            match field.kind {
+//                                FieldKind::Repeated(..) => Visibility::Default,
+//                                FieldKind::Singular(SingularField { ref flag, .. }) => {
+//                                    match *flag {
+//                                        SingularFieldFlag::WithFlag { .. } => Visibility::Default,
+//                                        SingularFieldFlag::WithoutFlag => Visibility::Public,
+//                                    }
+//                                }
+//                                FieldKind::Map(..) => Visibility::Public,
+//                                FieldKind::Oneof(..) => unreachable!(),
+//                            }
+//                        };
+                        let vis = Visibility::Public;
                         w.field_decl_vis(
                             vis,
                             &field.rust_name,
@@ -429,7 +430,7 @@ impl<'a> MessageGen<'a> {
         self.write_impl_self(w);
         w.write_line("");
         self.write_impl_message(w);
-        w.write_line("");
+//        w.write_line("");
         self.write_impl_message_static(w);
         w.write_line("");
         self.write_impl_clear(w);

@@ -142,9 +142,9 @@ impl ::protobuf::Message for SourceContext {
         self
     }
 
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
-    }
+//    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
+//        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
+//    }
 }
 
 impl ::protobuf::MessageStatic for SourceContext {

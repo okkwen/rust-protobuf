@@ -29,7 +29,7 @@ pub trait Message: fmt::Debug + Clear + Any + Send + Sync {
     // However, rust doesn't allow these types to be extended by
     // Message.
 
-    fn descriptor(&self) -> &'static MessageDescriptor;
+//    fn descriptor(&self) -> &'static MessageDescriptor;
 
     // all required fields set
     fn is_initialized(&self) -> bool;
@@ -83,7 +83,7 @@ pub trait Message: fmt::Debug + Clear + Any + Send + Sync {
     fn check_initialized(&self) -> ProtobufResult<()> {
         if !self.is_initialized() {
             Err(
-                (ProtobufError::message_not_initialized(self.descriptor().name())),
+                (ProtobufError::message_not_initialized("message not initialized")),
             )
         } else {
             Ok(())

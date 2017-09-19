@@ -181,53 +181,53 @@ fn print_field(
 }
 
 fn print_to_internal(m: &Message, buf: &mut String, pretty: bool, indent: usize) {
-    let d = m.descriptor();
-    let mut first = true;
-    for f in d.fields() {
-        match f.get_reflect(m) {
-            ReflectFieldRef::Map(map) => {
-                for (k, v) in map {
-                    print_start_field(buf, pretty, indent, &mut first, f.name());
-                    buf.push_str(" {");
-                    if pretty {
-                        buf.push_str("\n");
-                    }
-
-                    let mut entry_first = true;
-
-                    print_field(buf, pretty, indent + 1, &mut entry_first, "key", k.as_ref());
-                    print_field(
-                        buf,
-                        pretty,
-                        indent + 1,
-                        &mut entry_first,
-                        "value",
-                        v.as_ref(),
-                    );
-                    do_indent(buf, pretty, indent);
-                    buf.push_str("}");
-                    print_end_field(buf, pretty);
-                }
-            }
-            ReflectFieldRef::Repeated(repeated) => {
-                // TODO: do not print zeros for v3
-                for v in repeated {
-                    print_field(buf, pretty, indent, &mut first, f.name(), v.as_ref());
-                }
-            }
-            ReflectFieldRef::Optional(optional) => {
-                if let Some(v) = optional {
-                    print_field(buf, pretty, indent, &mut first, f.name(), v);
-                }
-            }
-            ReflectFieldRef::RepeatedOld(..) => {
-                for i in 0..f.len_field(m) {
-                    let v = f.get_rep_item(m, i);
-                    print_field(buf, pretty, indent, &mut first, f.name(), v);
-                }
-            }
-        }
-    }
+//    let d = m.descriptor();
+//    let mut first = true;
+//    for f in d.fields() {
+//        match f.get_reflect(m) {
+//            ReflectFieldRef::Map(map) => {
+//                for (k, v) in map {
+//                    print_start_field(buf, pretty, indent, &mut first, f.name());
+//                    buf.push_str(" {");
+//                    if pretty {
+//                        buf.push_str("\n");
+//                    }
+//
+//                    let mut entry_first = true;
+//
+//                    print_field(buf, pretty, indent + 1, &mut entry_first, "key", k.as_ref());
+//                    print_field(
+//                        buf,
+//                        pretty,
+//                        indent + 1,
+//                        &mut entry_first,
+//                        "value",
+//                        v.as_ref(),
+//                    );
+//                    do_indent(buf, pretty, indent);
+//                    buf.push_str("}");
+//                    print_end_field(buf, pretty);
+//                }
+//            }
+//            ReflectFieldRef::Repeated(repeated) => {
+//                // TODO: do not print zeros for v3
+//                for v in repeated {
+//                    print_field(buf, pretty, indent, &mut first, f.name(), v.as_ref());
+//                }
+//            }
+//            ReflectFieldRef::Optional(optional) => {
+//                if let Some(v) = optional {
+//                    print_field(buf, pretty, indent, &mut first, f.name(), v);
+//                }
+//            }
+//            ReflectFieldRef::RepeatedOld(..) => {
+//                for i in 0..f.len_field(m) {
+//                    let v = f.get_rep_item(m, i);
+//                    print_field(buf, pretty, indent, &mut first, f.name(), v);
+//                }
+//            }
+//        }
+//    }
 
     // TODO: unknown fields
 }
