@@ -2,7 +2,7 @@ use std;
 use std::fmt;
 use std::fmt::Write;
 use core::Message;
-use reflect::ReflectFieldRef;
+//use reflect::ReflectFieldRef;
 use reflect::ProtobufValueRef;
 
 
@@ -88,11 +88,13 @@ pub fn unescape_string(string: &str) -> Vec<u8> {
     }
 }
 
+#[allow(dead_code)]
 fn print_str_to(s: &str, buf: &mut String) {
     // TODO: keep printable Unicode
     quote_escape_bytes_to(s.as_bytes(), buf);
 }
 
+#[allow(dead_code)]
 fn do_indent(buf: &mut String, pretty: bool, indent: usize) {
     if pretty && indent > 0 {
         for _ in 0..indent {
@@ -101,6 +103,7 @@ fn do_indent(buf: &mut String, pretty: bool, indent: usize) {
     }
 }
 
+#[allow(dead_code)]
 fn print_start_field(
     buf: &mut String,
     pretty: bool,
@@ -116,12 +119,14 @@ fn print_start_field(
     buf.push_str(field_name);
 }
 
+#[allow(dead_code)]
 fn print_end_field(buf: &mut String, pretty: bool) {
     if pretty {
         buf.push_str("\n");
     }
 }
 
+#[allow(dead_code)]
 fn print_field(
     buf: &mut String,
     pretty: bool,
@@ -180,7 +185,7 @@ fn print_field(
     print_end_field(buf, pretty);
 }
 
-fn print_to_internal(m: &Message, buf: &mut String, pretty: bool, indent: usize) {
+fn print_to_internal(_: &Message, _buf: &mut String, _pretty: bool, _indent: usize) {
 //    let d = m.descriptor();
 //    let mut first = true;
 //    for f in d.fields() {

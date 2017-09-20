@@ -224,6 +224,7 @@ impl<'a> MessageGen<'a> {
         });
     }
 
+    #[allow(dead_code)]
     fn write_descriptor_field(&self, fields_var: &str, field: &FieldGen, w: &mut CodeWriter) {
         let accessor_fn = field.accessor_fn();
         w.write_line(&format!(
@@ -240,6 +241,7 @@ impl<'a> MessageGen<'a> {
         w.write_line("));");
     }
 
+    #[allow(dead_code)]
     fn write_descriptor_static(&self, w: &mut CodeWriter) {
         w.def_fn(&format!("descriptor_static(_: ::std::option::Option<{}>) -> &'static ::protobuf::reflect::MessageDescriptor", self.type_name), |w| {
             w.lazy_static_decl_get("descriptor", "::protobuf::reflect::MessageDescriptor", |w| {

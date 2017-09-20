@@ -459,6 +459,7 @@ fn field_elem(
     }
 }
 
+#[allow(dead_code)]
 pub struct AccessorFn {
     name: String,
     for_reflect_suffix: bool,
@@ -467,6 +468,7 @@ pub struct AccessorFn {
 }
 
 impl AccessorFn {
+    #[allow(dead_code)]
     pub fn sig(&self) -> String {
         let mut s = self.name.clone();
         s.push_str("::<_");
@@ -697,6 +699,7 @@ impl<'a> FieldGen<'a> {
     }
 
     // for field `foo`, return type if `fn take_foo(..)`
+    #[allow(dead_code)]
     fn take_xxx_return_type(&self) -> RustType {
         self.set_xxx_param_type()
     }
@@ -877,6 +880,7 @@ impl<'a> FieldGen<'a> {
         )
     }
 
+    #[allow(dead_code)]
     pub fn accessor_fn(&self) -> AccessorFn {
         match self.kind {
             FieldKind::Repeated(RepeatedField { ref elem, .. }) => {
@@ -1681,6 +1685,7 @@ impl<'a> FieldGen<'a> {
         });
     }
 
+    #[allow(dead_code)]
     fn write_message_field_get_for_reflect(&self, w: &mut CodeWriter) {
         let sig = format!(
             "get_{}_for_reflect(&self) -> &{}",
@@ -1690,6 +1695,7 @@ impl<'a> FieldGen<'a> {
         w.def_fn(&sig, |w| w.write_line(&format!("&{}", self.self_field())));
     }
 
+    #[allow(dead_code)]
     fn write_message_field_mut_for_reflect(&self, w: &mut CodeWriter) {
         let sig = format!(
             "mut_{}_for_reflect(&mut self) -> &mut {}",
@@ -1726,6 +1732,7 @@ impl<'a> FieldGen<'a> {
         }
     }
 
+    #[allow(dead_code)]
     fn has_take(&self) -> bool {
         match self.kind {
             FieldKind::Repeated(..) |
@@ -1844,6 +1851,7 @@ impl<'a> FieldGen<'a> {
         });
     }
 
+    #[allow(dead_code)]
     fn write_message_field_take_oneof(&self, w: &mut CodeWriter) {
         let take_xxx_return_type = self.take_xxx_return_type();
 
@@ -1874,6 +1882,7 @@ impl<'a> FieldGen<'a> {
         w.write_line("}");
     }
 
+    #[allow(dead_code)]
     fn write_message_field_take(&self, w: &mut CodeWriter) {
         let take_xxx_return_type = self.take_xxx_return_type();
         w.comment("Take field");

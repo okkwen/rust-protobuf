@@ -140,6 +140,7 @@ impl RustType {
         }
     }
 
+    #[allow(dead_code)]
     pub fn is_u8(&self) -> bool {
         match *self {
             RustType::Int(false, 8) => true,
