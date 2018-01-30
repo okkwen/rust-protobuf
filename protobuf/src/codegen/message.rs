@@ -367,10 +367,10 @@ impl<'a> MessageGen<'a> {
     }
 
     fn write_struct(&self, w: &mut CodeWriter) {
-        let mut derive = vec!["PartialEq", "Clone", "Default"];
-        if self.lite_runtime {
-            derive.push("Debug");
-        }
+        let derive = vec!["PartialEq", "Clone", "Default"];
+//        if self.lite_runtime {
+//            derive.push("Debug");
+//        }
         w.derive(&derive);
         w.pub_struct(&self.type_name, |w| {
             if !self.fields_except_oneof().is_empty() {
