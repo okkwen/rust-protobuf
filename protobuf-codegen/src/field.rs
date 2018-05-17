@@ -1267,6 +1267,7 @@ impl<'a> FieldGen<'a> {
         format!("self.{}", self.oneof().oneof_name)
     }
 
+    #[allow(dead_code)]
     pub fn clear_field_func(&self) -> String {
         format!("clear_{}", self.rust_name)
     }
@@ -1903,11 +1904,11 @@ impl<'a> FieldGen<'a> {
             return;
         }
 
-        w.write_line("");
-        let clear_field_func = self.clear_field_func();
-        w.pub_fn(&format!("{}(&mut self)", clear_field_func), |w| {
-            self.write_clear(w);
-        });
+//        w.write_line("");
+//        let clear_field_func = self.clear_field_func();
+//        w.pub_fn(&format!("{}(&mut self)", clear_field_func), |w| {
+//            self.write_clear(w);
+//        });
 
         if self.has_has() {
             w.write_line("");
@@ -1922,9 +1923,9 @@ impl<'a> FieldGen<'a> {
             self.write_message_field_mut(w);
         }
 
-        if self.has_take() {
-            w.write_line("");
-            self.write_message_field_take(w);
-        }
+//        if self.has_take() {
+//            w.write_line("");
+//            self.write_message_field_take(w);
+//        }
     }
 }
