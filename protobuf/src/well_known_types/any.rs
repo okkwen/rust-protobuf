@@ -168,32 +168,32 @@ impl ::protobuf::Message for Any {
         Any::new()
     }
 
-    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                let mut fields = ::std::vec::Vec::new();
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
-                    "type_url",
-                    |m: &Any| { &m.type_url },
-                    |m: &mut Any| { &mut m.type_url },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeBytes>(
-                    "value",
-                    |m: &Any| { &m.value },
-                    |m: &mut Any| { &mut m.value },
-                ));
-                ::protobuf::reflect::MessageDescriptor::new::<Any>(
-                    "Any",
-                    fields,
-                    file_descriptor_proto()
-                )
-            })
-        }
-    }
+//    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+//        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
+//            lock: ::protobuf::lazy::ONCE_INIT,
+//            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
+//        };
+//        unsafe {
+//            descriptor.get(|| {
+//                let mut fields = ::std::vec::Vec::new();
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
+//                    "type_url",
+//                    |m: &Any| { &m.type_url },
+//                    |m: &mut Any| { &mut m.type_url },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeBytes>(
+//                    "value",
+//                    |m: &Any| { &m.value },
+//                    |m: &mut Any| { &mut m.value },
+//                ));
+//                ::protobuf::reflect::MessageDescriptor::new::<Any>(
+//                    "Any",
+//                    fields,
+//                    file_descriptor_proto()
+//                )
+//            })
+//        }
+//    }
 
     fn default_instance() -> &'static Any {
         static mut instance: ::protobuf::lazy::Lazy<Any> = ::protobuf::lazy::Lazy {

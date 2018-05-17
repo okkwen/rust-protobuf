@@ -8,7 +8,7 @@ use std::io::Write;
 use bytes::Bytes;
 
 use clear::Clear;
-use reflect::MessageDescriptor;
+//use reflect::MessageDescriptor;
 use unknown::UnknownFields;
 use stream::WithCodedInputStream;
 use stream::WithCodedOutputStream;
@@ -169,15 +169,15 @@ pub trait Message: fmt::Debug + Clear + Any + Send + Sync {
     /// Create an empty message object.
     fn new() -> Self where Self : Sized;
 
-    /// Get message descriptor for message type.
-    fn descriptor_static() -> &'static MessageDescriptor
-        where Self : Sized
-    {
-        panic!(
-            "descriptor_static is not implemented for message, \
-             LITE_RUNTIME must be used"
-        );
-    }
+//    /// Get message descriptor for message type.
+//    fn descriptor_static() -> &'static MessageDescriptor
+//        where Self : Sized
+//    {
+//        panic!(
+//            "descriptor_static is not implemented for message, \
+//             LITE_RUNTIME must be used"
+//        );
+//    }
 
     /// Return a pointer to default immutable message.
     fn default_instance() -> &'static Self

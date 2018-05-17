@@ -95,22 +95,22 @@ impl ::protobuf::Message for Empty {
         Empty::new()
     }
 
-    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                let fields = ::std::vec::Vec::new();
-                ::protobuf::reflect::MessageDescriptor::new::<Empty>(
-                    "Empty",
-                    fields,
-                    file_descriptor_proto()
-                )
-            })
-        }
-    }
+//    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+//        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
+//            lock: ::protobuf::lazy::ONCE_INIT,
+//            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
+//        };
+//        unsafe {
+//            descriptor.get(|| {
+//                let fields = ::std::vec::Vec::new();
+//                ::protobuf::reflect::MessageDescriptor::new::<Empty>(
+//                    "Empty",
+//                    fields,
+//                    file_descriptor_proto()
+//                )
+//            })
+//        }
+//    }
 
     fn default_instance() -> &'static Empty {
         static mut instance: ::protobuf::lazy::Lazy<Empty> = ::protobuf::lazy::Lazy {

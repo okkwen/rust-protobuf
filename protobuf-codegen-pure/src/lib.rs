@@ -1,3 +1,4 @@
+#![feature(ascii_ctype)]
 extern crate protobuf;
 extern crate protobuf_codegen;
 

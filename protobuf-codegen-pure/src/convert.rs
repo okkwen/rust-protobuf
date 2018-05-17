@@ -36,7 +36,7 @@ trait ProtobufOptions {
 
     fn by_name_bool(&self, name: &str) -> ConvertResult<Option<bool>> {
         match self.by_name(name) {
-            Some(model::ProtobufConstant::Bool(b)) => Ok(Some(*b)),
+            Some(&model::ProtobufConstant::Bool(b)) => Ok(Some(b)),
             Some(_) => Err(ConvertError::WrongOptionType),
             None => Ok(None),
         }
@@ -46,7 +46,7 @@ trait ProtobufOptions {
 impl<'a> ProtobufOptions for &'a [model::ProtobufOption] {
     fn by_name(&self, name: &str) -> Option<&model::ProtobufConstant> {
         let option_name = name;
-        for model::ProtobufOption { name, value } in *self {
+        for &model::ProtobufOption { ref name, ref value } in *self {
             if name == option_name {
                 return Some(&value);
             }
@@ -554,14 +554,14 @@ impl<'a> Resolver<'a> {
         if let Some(ref default) = input.options.as_slice().by_name("default") {
             let default = match output.get_field_type() {
                 protobuf::descriptor::FieldDescriptorProto_Type::TYPE_STRING => {
-                    if let &model::ProtobufConstant::String(ref s) = default {
+                    if let &&model::ProtobufConstant::String(ref s) = default {
                         s.decode_utf8()?
                     } else {
                         return Err(ConvertError::DefaultValueIsNotStringLiteral);
                     }
                 }
                 protobuf::descriptor::FieldDescriptorProto_Type::TYPE_BYTES => {
-                    if let &model::ProtobufConstant::String(ref s) = default {
+                    if let &&model::ProtobufConstant::String(ref s) = default {
                         s.escaped.clone()
                     } else {
                         return Err(ConvertError::DefaultValueIsNotStringLiteral);

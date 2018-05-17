@@ -132,27 +132,27 @@ impl ::protobuf::Message for SourceContext {
         SourceContext::new()
     }
 
-    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                let mut fields = ::std::vec::Vec::new();
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
-                    "file_name",
-                    |m: &SourceContext| { &m.file_name },
-                    |m: &mut SourceContext| { &mut m.file_name },
-                ));
-                ::protobuf::reflect::MessageDescriptor::new::<SourceContext>(
-                    "SourceContext",
-                    fields,
-                    file_descriptor_proto()
-                )
-            })
-        }
-    }
+//    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+//        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
+//            lock: ::protobuf::lazy::ONCE_INIT,
+//            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
+//        };
+//        unsafe {
+//            descriptor.get(|| {
+//                let mut fields = ::std::vec::Vec::new();
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
+//                    "file_name",
+//                    |m: &SourceContext| { &m.file_name },
+//                    |m: &mut SourceContext| { &mut m.file_name },
+//                ));
+//                ::protobuf::reflect::MessageDescriptor::new::<SourceContext>(
+//                    "SourceContext",
+//                    fields,
+//                    file_descriptor_proto()
+//                )
+//            })
+//        }
+//    }
 
     fn default_instance() -> &'static SourceContext {
         static mut instance: ::protobuf::lazy::Lazy<SourceContext> = ::protobuf::lazy::Lazy {

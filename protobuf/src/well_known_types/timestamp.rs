@@ -154,32 +154,32 @@ impl ::protobuf::Message for Timestamp {
         Timestamp::new()
     }
 
-    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                let mut fields = ::std::vec::Vec::new();
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeInt64>(
-                    "seconds",
-                    |m: &Timestamp| { &m.seconds },
-                    |m: &mut Timestamp| { &mut m.seconds },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeInt32>(
-                    "nanos",
-                    |m: &Timestamp| { &m.nanos },
-                    |m: &mut Timestamp| { &mut m.nanos },
-                ));
-                ::protobuf::reflect::MessageDescriptor::new::<Timestamp>(
-                    "Timestamp",
-                    fields,
-                    file_descriptor_proto()
-                )
-            })
-        }
-    }
+//    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+//        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
+//            lock: ::protobuf::lazy::ONCE_INIT,
+//            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
+//        };
+//        unsafe {
+//            descriptor.get(|| {
+//                let mut fields = ::std::vec::Vec::new();
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeInt64>(
+//                    "seconds",
+//                    |m: &Timestamp| { &m.seconds },
+//                    |m: &mut Timestamp| { &mut m.seconds },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeInt32>(
+//                    "nanos",
+//                    |m: &Timestamp| { &m.nanos },
+//                    |m: &mut Timestamp| { &mut m.nanos },
+//                ));
+//                ::protobuf::reflect::MessageDescriptor::new::<Timestamp>(
+//                    "Timestamp",
+//                    fields,
+//                    file_descriptor_proto()
+//                )
+//            })
+//        }
+//    }
 
     fn default_instance() -> &'static Timestamp {
         static mut instance: ::protobuf::lazy::Lazy<Timestamp> = ::protobuf::lazy::Lazy {

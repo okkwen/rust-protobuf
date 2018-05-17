@@ -329,52 +329,52 @@ impl ::protobuf::Message for Type {
         Type::new()
     }
 
-    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                let mut fields = ::std::vec::Vec::new();
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
-                    "name",
-                    |m: &Type| { &m.name },
-                    |m: &mut Type| { &mut m.name },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Field>>(
-                    "fields",
-                    |m: &Type| { &m.fields },
-                    |m: &mut Type| { &mut m.fields },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
-                    "oneofs",
-                    |m: &Type| { &m.oneofs },
-                    |m: &mut Type| { &mut m.oneofs },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Option>>(
-                    "options",
-                    |m: &Type| { &m.options },
-                    |m: &mut Type| { &mut m.options },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<::protobuf::well_known_types::SourceContext>>(
-                    "source_context",
-                    |m: &Type| { &m.source_context },
-                    |m: &mut Type| { &mut m.source_context },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeEnum<Syntax>>(
-                    "syntax",
-                    |m: &Type| { &m.syntax },
-                    |m: &mut Type| { &mut m.syntax },
-                ));
-                ::protobuf::reflect::MessageDescriptor::new::<Type>(
-                    "Type",
-                    fields,
-                    file_descriptor_proto()
-                )
-            })
-        }
-    }
+//    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+//        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
+//            lock: ::protobuf::lazy::ONCE_INIT,
+//            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
+//        };
+//        unsafe {
+//            descriptor.get(|| {
+//                let mut fields = ::std::vec::Vec::new();
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
+//                    "name",
+//                    |m: &Type| { &m.name },
+//                    |m: &mut Type| { &mut m.name },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Field>>(
+//                    "fields",
+//                    |m: &Type| { &m.fields },
+//                    |m: &mut Type| { &mut m.fields },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
+//                    "oneofs",
+//                    |m: &Type| { &m.oneofs },
+//                    |m: &mut Type| { &mut m.oneofs },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Option>>(
+//                    "options",
+//                    |m: &Type| { &m.options },
+//                    |m: &mut Type| { &mut m.options },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<::protobuf::well_known_types::SourceContext>>(
+//                    "source_context",
+//                    |m: &Type| { &m.source_context },
+//                    |m: &mut Type| { &mut m.source_context },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeEnum<Syntax>>(
+//                    "syntax",
+//                    |m: &Type| { &m.syntax },
+//                    |m: &mut Type| { &mut m.syntax },
+//                ));
+//                ::protobuf::reflect::MessageDescriptor::new::<Type>(
+//                    "Type",
+//                    fields,
+//                    file_descriptor_proto()
+//                )
+//            })
+//        }
+//    }
 
     fn default_instance() -> &'static Type {
         static mut instance: ::protobuf::lazy::Lazy<Type> = ::protobuf::lazy::Lazy {
@@ -810,72 +810,72 @@ impl ::protobuf::Message for Field {
         Field::new()
     }
 
-    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                let mut fields = ::std::vec::Vec::new();
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeEnum<Field_Kind>>(
-                    "kind",
-                    |m: &Field| { &m.kind },
-                    |m: &mut Field| { &mut m.kind },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeEnum<Field_Cardinality>>(
-                    "cardinality",
-                    |m: &Field| { &m.cardinality },
-                    |m: &mut Field| { &mut m.cardinality },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeInt32>(
-                    "number",
-                    |m: &Field| { &m.number },
-                    |m: &mut Field| { &mut m.number },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
-                    "name",
-                    |m: &Field| { &m.name },
-                    |m: &mut Field| { &mut m.name },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
-                    "type_url",
-                    |m: &Field| { &m.type_url },
-                    |m: &mut Field| { &mut m.type_url },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeInt32>(
-                    "oneof_index",
-                    |m: &Field| { &m.oneof_index },
-                    |m: &mut Field| { &mut m.oneof_index },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeBool>(
-                    "packed",
-                    |m: &Field| { &m.packed },
-                    |m: &mut Field| { &mut m.packed },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Option>>(
-                    "options",
-                    |m: &Field| { &m.options },
-                    |m: &mut Field| { &mut m.options },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
-                    "json_name",
-                    |m: &Field| { &m.json_name },
-                    |m: &mut Field| { &mut m.json_name },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
-                    "default_value",
-                    |m: &Field| { &m.default_value },
-                    |m: &mut Field| { &mut m.default_value },
-                ));
-                ::protobuf::reflect::MessageDescriptor::new::<Field>(
-                    "Field",
-                    fields,
-                    file_descriptor_proto()
-                )
-            })
-        }
-    }
+//    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+//        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
+//            lock: ::protobuf::lazy::ONCE_INIT,
+//            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
+//        };
+//        unsafe {
+//            descriptor.get(|| {
+//                let mut fields = ::std::vec::Vec::new();
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeEnum<Field_Kind>>(
+//                    "kind",
+//                    |m: &Field| { &m.kind },
+//                    |m: &mut Field| { &mut m.kind },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeEnum<Field_Cardinality>>(
+//                    "cardinality",
+//                    |m: &Field| { &m.cardinality },
+//                    |m: &mut Field| { &mut m.cardinality },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeInt32>(
+//                    "number",
+//                    |m: &Field| { &m.number },
+//                    |m: &mut Field| { &mut m.number },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
+//                    "name",
+//                    |m: &Field| { &m.name },
+//                    |m: &mut Field| { &mut m.name },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
+//                    "type_url",
+//                    |m: &Field| { &m.type_url },
+//                    |m: &mut Field| { &mut m.type_url },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeInt32>(
+//                    "oneof_index",
+//                    |m: &Field| { &m.oneof_index },
+//                    |m: &mut Field| { &mut m.oneof_index },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeBool>(
+//                    "packed",
+//                    |m: &Field| { &m.packed },
+//                    |m: &mut Field| { &mut m.packed },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Option>>(
+//                    "options",
+//                    |m: &Field| { &m.options },
+//                    |m: &mut Field| { &mut m.options },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
+//                    "json_name",
+//                    |m: &Field| { &m.json_name },
+//                    |m: &mut Field| { &mut m.json_name },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
+//                    "default_value",
+//                    |m: &Field| { &m.default_value },
+//                    |m: &mut Field| { &mut m.default_value },
+//                ));
+//                ::protobuf::reflect::MessageDescriptor::new::<Field>(
+//                    "Field",
+//                    fields,
+//                    file_descriptor_proto()
+//                )
+//            })
+//        }
+//    }
 
     fn default_instance() -> &'static Field {
         static mut instance: ::protobuf::lazy::Lazy<Field> = ::protobuf::lazy::Lazy {
@@ -1356,47 +1356,47 @@ impl ::protobuf::Message for Enum {
         Enum::new()
     }
 
-    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                let mut fields = ::std::vec::Vec::new();
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
-                    "name",
-                    |m: &Enum| { &m.name },
-                    |m: &mut Enum| { &mut m.name },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<EnumValue>>(
-                    "enumvalue",
-                    |m: &Enum| { &m.enumvalue },
-                    |m: &mut Enum| { &mut m.enumvalue },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Option>>(
-                    "options",
-                    |m: &Enum| { &m.options },
-                    |m: &mut Enum| { &mut m.options },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<::protobuf::well_known_types::SourceContext>>(
-                    "source_context",
-                    |m: &Enum| { &m.source_context },
-                    |m: &mut Enum| { &mut m.source_context },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeEnum<Syntax>>(
-                    "syntax",
-                    |m: &Enum| { &m.syntax },
-                    |m: &mut Enum| { &mut m.syntax },
-                ));
-                ::protobuf::reflect::MessageDescriptor::new::<Enum>(
-                    "Enum",
-                    fields,
-                    file_descriptor_proto()
-                )
-            })
-        }
-    }
+//    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+//        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
+//            lock: ::protobuf::lazy::ONCE_INIT,
+//            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
+//        };
+//        unsafe {
+//            descriptor.get(|| {
+//                let mut fields = ::std::vec::Vec::new();
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
+//                    "name",
+//                    |m: &Enum| { &m.name },
+//                    |m: &mut Enum| { &mut m.name },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<EnumValue>>(
+//                    "enumvalue",
+//                    |m: &Enum| { &m.enumvalue },
+//                    |m: &mut Enum| { &mut m.enumvalue },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Option>>(
+//                    "options",
+//                    |m: &Enum| { &m.options },
+//                    |m: &mut Enum| { &mut m.options },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<::protobuf::well_known_types::SourceContext>>(
+//                    "source_context",
+//                    |m: &Enum| { &m.source_context },
+//                    |m: &mut Enum| { &mut m.source_context },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeEnum<Syntax>>(
+//                    "syntax",
+//                    |m: &Enum| { &m.syntax },
+//                    |m: &mut Enum| { &mut m.syntax },
+//                ));
+//                ::protobuf::reflect::MessageDescriptor::new::<Enum>(
+//                    "Enum",
+//                    fields,
+//                    file_descriptor_proto()
+//                )
+//            })
+//        }
+//    }
 
     fn default_instance() -> &'static Enum {
         static mut instance: ::protobuf::lazy::Lazy<Enum> = ::protobuf::lazy::Lazy {
@@ -1615,37 +1615,37 @@ impl ::protobuf::Message for EnumValue {
         EnumValue::new()
     }
 
-    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                let mut fields = ::std::vec::Vec::new();
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
-                    "name",
-                    |m: &EnumValue| { &m.name },
-                    |m: &mut EnumValue| { &mut m.name },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeInt32>(
-                    "number",
-                    |m: &EnumValue| { &m.number },
-                    |m: &mut EnumValue| { &mut m.number },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Option>>(
-                    "options",
-                    |m: &EnumValue| { &m.options },
-                    |m: &mut EnumValue| { &mut m.options },
-                ));
-                ::protobuf::reflect::MessageDescriptor::new::<EnumValue>(
-                    "EnumValue",
-                    fields,
-                    file_descriptor_proto()
-                )
-            })
-        }
-    }
+//    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+//        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
+//            lock: ::protobuf::lazy::ONCE_INIT,
+//            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
+//        };
+//        unsafe {
+//            descriptor.get(|| {
+//                let mut fields = ::std::vec::Vec::new();
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
+//                    "name",
+//                    |m: &EnumValue| { &m.name },
+//                    |m: &mut EnumValue| { &mut m.name },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeInt32>(
+//                    "number",
+//                    |m: &EnumValue| { &m.number },
+//                    |m: &mut EnumValue| { &mut m.number },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Option>>(
+//                    "options",
+//                    |m: &EnumValue| { &m.options },
+//                    |m: &mut EnumValue| { &mut m.options },
+//                ));
+//                ::protobuf::reflect::MessageDescriptor::new::<EnumValue>(
+//                    "EnumValue",
+//                    fields,
+//                    file_descriptor_proto()
+//                )
+//            })
+//        }
+//    }
 
     fn default_instance() -> &'static EnumValue {
         static mut instance: ::protobuf::lazy::Lazy<EnumValue> = ::protobuf::lazy::Lazy {
@@ -1841,32 +1841,32 @@ impl ::protobuf::Message for Option {
         Option::new()
     }
 
-    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                let mut fields = ::std::vec::Vec::new();
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
-                    "name",
-                    |m: &Option| { &m.name },
-                    |m: &mut Option| { &mut m.name },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<::protobuf::well_known_types::Any>>(
-                    "value",
-                    |m: &Option| { &m.value },
-                    |m: &mut Option| { &mut m.value },
-                ));
-                ::protobuf::reflect::MessageDescriptor::new::<Option>(
-                    "Option",
-                    fields,
-                    file_descriptor_proto()
-                )
-            })
-        }
-    }
+//    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+//        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
+//            lock: ::protobuf::lazy::ONCE_INIT,
+//            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
+//        };
+//        unsafe {
+//            descriptor.get(|| {
+//                let mut fields = ::std::vec::Vec::new();
+//                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
+//                    "name",
+//                    |m: &Option| { &m.name },
+//                    |m: &mut Option| { &mut m.name },
+//                ));
+//                fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<::protobuf::well_known_types::Any>>(
+//                    "value",
+//                    |m: &Option| { &m.value },
+//                    |m: &mut Option| { &mut m.value },
+//                ));
+//                ::protobuf::reflect::MessageDescriptor::new::<Option>(
+//                    "Option",
+//                    fields,
+//                    file_descriptor_proto()
+//                )
+//            })
+//        }
+//    }
 
     fn default_instance() -> &'static Option {
         static mut instance: ::protobuf::lazy::Lazy<Option> = ::protobuf::lazy::Lazy {

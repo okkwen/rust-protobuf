@@ -131,27 +131,27 @@ impl ::protobuf::Message for FieldMask {
         FieldMask::new()
     }
 
-    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                let mut fields = ::std::vec::Vec::new();
-                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
-                    "paths",
-                    |m: &FieldMask| { &m.paths },
-                    |m: &mut FieldMask| { &mut m.paths },
-                ));
-                ::protobuf::reflect::MessageDescriptor::new::<FieldMask>(
-                    "FieldMask",
-                    fields,
-                    file_descriptor_proto()
-                )
-            })
-        }
-    }
+//    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
+//        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
+//            lock: ::protobuf::lazy::ONCE_INIT,
+//            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
+//        };
+//        unsafe {
+//            descriptor.get(|| {
+//                let mut fields = ::std::vec::Vec::new();
+//                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
+//                    "paths",
+//                    |m: &FieldMask| { &m.paths },
+//                    |m: &mut FieldMask| { &mut m.paths },
+//                ));
+//                ::protobuf::reflect::MessageDescriptor::new::<FieldMask>(
+//                    "FieldMask",
+//                    fields,
+//                    file_descriptor_proto()
+//                )
+//            })
+//        }
+//    }
 
     fn default_instance() -> &'static FieldMask {
         static mut instance: ::protobuf::lazy::Lazy<FieldMask> = ::protobuf::lazy::Lazy {

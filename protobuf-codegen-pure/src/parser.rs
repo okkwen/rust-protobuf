@@ -2,6 +2,7 @@ use std::str;
 use std::fmt;
 use std::num::ParseIntError;
 use std::f64;
+use std::ascii::AsciiExt;
 
 use model::*;
 use protobuf_codegen::float;

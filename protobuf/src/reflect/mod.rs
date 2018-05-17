@@ -153,9 +153,9 @@ pub struct MessageDescriptor {
 }
 
 impl MessageDescriptor {
-    pub fn for_type<M : Message>() -> &'static MessageDescriptor {
-        M::descriptor_static()
-    }
+//    pub fn for_type<M : Message>() -> &'static MessageDescriptor {
+//        M::descriptor_static()
+//    }
 
     pub fn new<M : 'static + Message + Default>(
         rust_name: &'static str,
