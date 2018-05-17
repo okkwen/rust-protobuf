@@ -14,14 +14,12 @@ message Test3 {
     required Test1 c = 3;
 }
 
-message Test4 {
-    repeated int32 d = 4 [packed=true];
+message TestRecursion {
+    repeated TestRecursion children = 1;
 }
 
-
-message TestPackedUnpacked {
-    repeated int32 unpacked = 4;
-    repeated int32 packed = 5 [packed=true];
+message Test4 {
+    repeated int32 d = 4 [packed=true];
 }
 
 message TestEmpty {

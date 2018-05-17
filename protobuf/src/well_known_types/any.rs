@@ -36,17 +36,11 @@ impl Any {
         ::std::default::Default::default()
     }
 
-    pub fn default_instance() -> &'static Any {
-        static mut instance: ::protobuf::lazy::Lazy<Any> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const Any,
-        };
-        unsafe {
-            instance.get(Any::new)
-        }
-    }
-
     // string type_url = 1;
+
+    pub fn get_type_url(&self) -> &str {
+        &self.type_url
+    }
 
     pub fn clear_type_url(&mut self) {
         self.type_url.clear();
@@ -68,19 +62,11 @@ impl Any {
         ::std::mem::replace(&mut self.type_url, ::std::string::String::new())
     }
 
-    pub fn get_type_url(&self) -> &str {
-        &self.type_url
-    }
-
-    fn get_type_url_for_reflect(&self) -> &::std::string::String {
-        &self.type_url
-    }
-
-    fn mut_type_url_for_reflect(&mut self) -> &mut ::std::string::String {
-        &mut self.type_url
-    }
-
     // bytes value = 2;
+
+    pub fn get_value(&self) -> &[u8] {
+        &self.value
+    }
 
     pub fn clear_value(&mut self) {
         self.value.clear();
@@ -100,18 +86,6 @@ impl Any {
     // Take field
     pub fn take_value(&mut self) -> ::std::vec::Vec<u8> {
         ::std::mem::replace(&mut self.value, ::std::vec::Vec::new())
-    }
-
-    pub fn get_value(&self) -> &[u8] {
-        &self.value
-    }
-
-    fn get_value_for_reflect(&self) -> &::std::vec::Vec<u8> {
-        &self.value
-    }
-
-    fn mut_value_for_reflect(&mut self) -> &mut ::std::vec::Vec<u8> {
-        &mut self.value
     }
 }
 
@@ -189,14 +163,12 @@ impl ::protobuf::Message for Any {
 //    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
 //        ::protobuf::MessageStatic::descriptor_static(None::<Self>)
 //    }
-}
 
-impl ::protobuf::MessageStatic for Any {
     fn new() -> Any {
         Any::new()
     }
 
-    fn descriptor_static(_: ::std::option::Option<Any>) -> &'static ::protobuf::reflect::MessageDescriptor {
+    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
         static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
             lock: ::protobuf::lazy::ONCE_INIT,
             ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
@@ -206,13 +178,13 @@ impl ::protobuf::MessageStatic for Any {
                 let mut fields = ::std::vec::Vec::new();
                 fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
                     "type_url",
-                    Any::get_type_url_for_reflect,
-                    Any::mut_type_url_for_reflect,
+                    |m: &Any| { &m.type_url },
+                    |m: &mut Any| { &mut m.type_url },
                 ));
                 fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeBytes>(
                     "value",
-                    Any::get_value_for_reflect,
-                    Any::mut_value_for_reflect,
+                    |m: &Any| { &m.value },
+                    |m: &mut Any| { &mut m.value },
                 ));
                 ::protobuf::reflect::MessageDescriptor::new::<Any>(
                     "Any",
@@ -222,12 +194,22 @@ impl ::protobuf::MessageStatic for Any {
             })
         }
     }
+
+    fn default_instance() -> &'static Any {
+        static mut instance: ::protobuf::lazy::Lazy<Any> = ::protobuf::lazy::Lazy {
+            lock: ::protobuf::lazy::ONCE_INIT,
+            ptr: 0 as *const Any,
+        };
+        unsafe {
+            instance.get(Any::new)
+        }
+    }
 }
 
 impl ::protobuf::Clear for Any {
     fn clear(&mut self) {
-        self.clear_type_url();
-        self.clear_value();
+        self.type_url.clear();
+        self.value.clear();
         self.unknown_fields.clear();
     }
 }

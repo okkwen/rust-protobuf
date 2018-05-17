@@ -1,3 +1,8 @@
+//! Library to read and write protocol buffers data.
+
+// TODO: add docs
+//#![deny(missing_docs)]
+
 #[cfg(feature = "bytes")]
 extern crate bytes;
 
@@ -12,14 +17,14 @@ pub use singular::SingularField;
 pub use singular::SingularPtrField;
 pub use clear::Clear;
 pub use core::Message;
-pub use core::MessageStatic;
-pub use core::ProtobufEnum;
 pub use core::parse_from_bytes;
 pub use core::parse_from_reader;
 #[cfg(feature = "bytes")]
 pub use core::parse_from_carllerche_bytes;
 pub use core::parse_length_delimited_from;
+pub use core::parse_length_delimited_from_reader;
 pub use core::parse_length_delimited_from_bytes;
+pub use enums::ProtobufEnum;
 pub use stream::CodedInputStream;
 pub use stream::CodedOutputStream;
 pub use stream::wire_format;
@@ -32,17 +37,16 @@ pub use chars::Chars;
 // generated
 pub mod descriptor;
 pub mod plugin;
-mod rustproto;
+pub mod rustproto;
 
-pub mod core;
+mod core;
+mod enums;
 pub mod rt;
 pub mod lazy;
-pub mod code_writer;
-pub mod codegen;
 pub mod compiler_plugin;
-pub mod repeated;
-pub mod singular;
-pub mod clear;
+mod repeated;
+mod singular;
+mod clear;
 pub mod reflect;
 pub mod text_format;
 pub mod stream;
@@ -52,7 +56,9 @@ pub mod well_known_types;
 pub mod ext;
 
 // used by test
-pub mod hex;
+#[cfg(test)]
+#[path = "../../protobuf-test-common/src/hex.rs"]
+mod hex;
 
 // used by rust-grpc
 pub mod descriptorx;
@@ -61,11 +67,12 @@ mod zigzag;
 mod paginate;
 mod unknown;
 mod strx;
-mod rust;
+#[doc(hidden)] // used by codegen
+pub mod rust;
 mod cached_size;
 mod varint;
 #[cfg(feature = "bytes")]
-pub mod chars; // TODO: make private
+mod chars;
 
 mod misc;
 
@@ -76,9 +83,9 @@ mod buf_read_iter;
 mod protobuf {
     pub use descriptor;
     pub use descriptorx;
-    pub use codegen;
     pub use reflect;
     pub use core::*;
+    pub use enums::ProtobufEnum;
     pub use error::*;
     pub use stream::*;
     pub use rt;

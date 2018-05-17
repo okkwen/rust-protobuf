@@ -4,7 +4,11 @@ members = [
     "protoc/test-protoc",
     "protoc-rust",
     "protobuf",
+    "protobuf-codegen",
+    "protobuf-codegen-pure",
+    "protobuf-codegen-pure-test",
     "protobuf-test",
+    "protobuf-test-common",
     "perftest/vs-cxx",
     "perftest/bytes",
 ]

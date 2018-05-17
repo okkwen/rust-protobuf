@@ -1,8 +1,7 @@
-use protobuf::hex::decode_hex;
-
 use protobuf::*;
 
-use test::*;
+use protobuf_test_common::*;
+use protobuf_test_common::hex::decode_hex;
 
 use super::test_basic_pb::*;
 
@@ -37,19 +36,33 @@ fn test4() {
 }
 
 #[test]
-fn test_read_unpacked_expect_packed() {
-    let mut test_packed_unpacked = TestPackedUnpacked::new();
-    test_packed_unpacked.set_packed(Vec::new());
-    test_packed_unpacked.set_unpacked([17i32, 1000].to_vec());
-    test_deserialize("20 11 20 e8 07", &test_packed_unpacked);
-}
+fn test_recursion_limit() {
+    let mut test = TestRecursion::new();
+    for _ in 0..10 {
+        let mut t = TestRecursion::new();
+        t.mut_children().push(test);
+        test = t;
+    }
+    
+    let bytes = test.write_to_bytes().unwrap();
+    let cases = vec![
+        (None, false),
+        (Some(9), true),
+        (Some(10), false),
+    ];
 
-#[test]
-fn test_read_packed_expect_unpacked() {
-    let mut test_packed_unpacked = TestPackedUnpacked::new();
-    test_packed_unpacked.set_packed([17i32, 1000].to_vec());
-    test_packed_unpacked.set_unpacked(Vec::new());
-    test_deserialize("2a 03 11 e8 07", &test_packed_unpacked);
+    for (limit, has_err) in cases {
+        let mut is = CodedInputStream::from_bytes(&bytes);
+        if let Some(limit) = limit {
+            is.set_recursion_limit(limit);
+        }
+        let mut t = TestRecursion::new();
+        let res = t.merge_from(&mut is);
+        assert_eq!(res.is_err(), has_err, "limit: {:?}", limit);
+        if !has_err {
+            assert_eq!(t, test, "limit: {:?}", limit);
+        }
+    }
 }
 
 #[test]
@@ -261,4 +274,27 @@ fn test_bug_sint() {
         x.set_s64(-2);
         test_serialize_deserialize("10 03", &x);
     }
+}
+
+/// Smoke test which validates that read from the network doesn't block
+#[test]
+fn test_parse_length_delimited_from_network_smoke() {
+    use std::net;
+    use std::thread;
+    use std::io::Write;
+
+    let listener = net::TcpListener::bind(("127.0.0.1", 0)).expect("bind");
+    let addr = listener.local_addr().expect("local_addr");
+    thread::spawn(move || {
+        let mut test1 = Test1::new();
+        test1.set_a(10);
+        let bytes = test1.write_length_delimited_to_bytes().expect("bytes");
+
+        let mut stream = listener.accept().expect("accept").0;
+        stream.write(&bytes).expect("write");
+    });
+
+    let mut tcp_stream = net::TcpStream::connect(addr).expect("connect");
+    let test1: Test1 = parse_length_delimited_from_reader(&mut tcp_stream).expect("parse...");
+    assert_eq!(10, test1.get_a());
 }

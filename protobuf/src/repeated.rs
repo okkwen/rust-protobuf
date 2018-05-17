@@ -15,20 +15,50 @@ use std::fmt;
 
 use clear::Clear;
 
+
+/// Implemented for both `Vec` and `RepeatedField`.
+/// Used to simplify codegen, should not be used directly.
+pub trait VecLike<T> {
+    fn push(&mut self, item: T);
+}
+
+impl<T> VecLike<T> for Vec<T> {
+    fn push(&mut self, item: T) {
+        Vec::push(self, item)
+    }
+}
+
+
+/// Wrapper around vector to avoid deallocations on clear.
+///
+/// It helps when needed to read lots of messages very quickly.
+///
+/// `RepeatedField` has the same API as `Vec`.
+///
+/// Note there's a codegen option to disable generation of `RepeatedField`
+/// and generate `Vec` instead.
 pub struct RepeatedField<T> {
     vec: Vec<T>,
     len: usize,
 }
 
 impl<T> RepeatedField<T> {
+    /// Return number of elements in this container.
     #[inline]
     pub fn len(&self) -> usize {
         self.len
     }
 
+    /// Clear.
     #[inline]
     pub fn clear(&mut self) {
         self.len = 0;
+    }
+}
+
+impl<T> VecLike<T> for RepeatedField<T> {
+    fn push(&mut self, item: T) {
+        RepeatedField::push(self, item)
     }
 }
 
@@ -50,17 +80,20 @@ impl<T> Default for RepeatedField<T> {
 }
 
 impl<T> RepeatedField<T> {
+    /// Create new empty container.
     #[inline]
     pub fn new() -> RepeatedField<T> {
         Default::default()
     }
 
+    /// Create a contained with data from given vec.
     #[inline]
     pub fn from_vec(vec: Vec<T>) -> RepeatedField<T> {
         let len = vec.len();
         RepeatedField { vec: vec, len: len }
     }
 
+    /// Convert data into vec.
     #[inline]
     pub fn into_vec(self) -> Vec<T> {
         let mut vec = self.vec;
@@ -68,77 +101,92 @@ impl<T> RepeatedField<T> {
         vec
     }
 
+    /// Return current capacity.
     #[inline]
     pub fn capacity(&self) -> usize {
         self.vec.capacity()
     }
 
+    /// View data as mutable slice.
     #[inline]
     pub fn as_mut_slice<'a>(&'a mut self) -> &'a mut [T] {
         &mut self.vec[..self.len]
     }
 
+    /// Get subslice of this container.
     #[inline]
-    pub fn slice<'a>(&'a self, start: usize, end: usize) -> &'a [T] {
+    pub fn slice(&self, start: usize, end: usize) -> &[T] {
         &self.as_ref()[start..end]
     }
 
+    /// Get mutable subslice of this container.
     #[inline]
-    pub fn slice_mut<'a>(&'a mut self, start: usize, end: usize) -> &'a mut [T] {
+    pub fn slice_mut(&mut self, start: usize, end: usize) -> &mut [T] {
         &mut self.as_mut_slice()[start..end]
     }
 
+    /// Get slice from given index.
     #[inline]
-    pub fn slice_from<'a>(&'a self, start: usize) -> &'a [T] {
+    pub fn slice_from(&self, start: usize) -> &[T] {
         &self.as_ref()[start..]
     }
 
+    /// Get mutable slice from given index.
     #[inline]
-    pub fn slice_from_mut<'a>(&'a mut self, start: usize) -> &'a mut [T] {
+    pub fn slice_from_mut(&mut self, start: usize) -> &mut [T] {
         &mut self.as_mut_slice()[start..]
     }
 
+    /// Get slice to given index.
     #[inline]
-    pub fn slice_to<'a>(&'a self, end: usize) -> &'a [T] {
+    pub fn slice_to(&self, end: usize) -> &[T] {
         &self.as_ref()[..end]
     }
 
+    /// Get mutable slice to given index.
     #[inline]
-    pub fn slice_to_mut<'a>(&'a mut self, end: usize) -> &'a mut [T] {
+    pub fn slice_to_mut(&mut self, end: usize) -> &mut [T] {
         &mut self.as_mut_slice()[..end]
     }
 
+    /// View this container as two slices split at given index.
     #[inline]
     pub fn split_at<'a>(&'a self, mid: usize) -> (&'a [T], &'a [T]) {
         self.as_ref().split_at(mid)
     }
 
+    /// View this container as two mutable slices split at given index.
     #[inline]
     pub fn split_at_mut<'a>(&'a mut self, mid: usize) -> (&'a mut [T], &'a mut [T]) {
         self.as_mut_slice().split_at_mut(mid)
     }
 
+    /// View all but first elements of this container.
     #[inline]
-    pub fn tail<'a>(&'a self) -> &'a [T] {
+    pub fn tail(&self) -> &[T] {
         &self.as_ref()[1..]
     }
 
+    /// Last element of this container.
     #[inline]
-    pub fn last<'a>(&'a self) -> Option<&'a T> {
+    pub fn last(&self) -> Option<&T> {
         self.as_ref().last()
     }
 
+    /// Mutable last element of this container.
     #[inline]
     pub fn last_mut<'a>(&'a mut self) -> Option<&'a mut T> {
         self.as_mut_slice().last_mut()
     }
 
+    /// View all but last elements of this container.
     #[inline]
     pub fn init<'a>(&'a self) -> &'a [T] {
         let s = self.as_ref();
         &s[0..s.len() - 1]
     }
 
+    /// Push an element to the end.
     #[inline]
     pub fn push(&mut self, value: T) {
         if self.len == self.vec.len() {
@@ -149,6 +197,7 @@ impl<T> RepeatedField<T> {
         self.len += 1;
     }
 
+    /// Pop last element.
     #[inline]
     pub fn pop(&mut self) -> Option<T> {
         if self.len == 0 {
@@ -160,6 +209,7 @@ impl<T> RepeatedField<T> {
         }
     }
 
+    /// Insert an element at specified position.
     #[inline]
     pub fn insert(&mut self, index: usize, value: T) {
         assert!(index <= self.len);
@@ -167,6 +217,7 @@ impl<T> RepeatedField<T> {
         self.len += 1;
     }
 
+    /// Remove an element from specified position.
     #[inline]
     pub fn remove(&mut self, index: usize) -> T {
         assert!(index < self.len);
@@ -174,6 +225,7 @@ impl<T> RepeatedField<T> {
         self.vec.remove(index)
     }
 
+    /// Truncate at specified length.
     #[inline]
     pub fn truncate(&mut self, len: usize) {
         if self.len > len {
@@ -181,27 +233,32 @@ impl<T> RepeatedField<T> {
         }
     }
 
+    /// Reverse in place.
     #[inline]
     pub fn reverse(&mut self) {
         self.as_mut_slice().reverse()
     }
 
+    /// Into owned iterator.
     #[inline]
     pub fn into_iter(mut self) -> vec::IntoIter<T> {
         self.vec.truncate(self.len);
         self.vec.into_iter()
     }
 
+    /// Immutable data iterator.
     #[inline]
     pub fn iter<'a>(&'a self) -> slice::Iter<'a, T> {
         self.as_ref().iter()
     }
 
+    /// Mutable data iterator.
     #[inline]
     pub fn iter_mut<'a>(&'a mut self) -> slice::IterMut<'a, T> {
         self.as_mut_slice().iter_mut()
     }
 
+    /// Sort elements with given comparator.
     #[inline]
     pub fn sort_by<F>(&mut self, compare: F)
     where
@@ -210,11 +267,13 @@ impl<T> RepeatedField<T> {
         self.as_mut_slice().sort_by(compare)
     }
 
+    /// Get data as raw pointer.
     #[inline]
     pub fn as_ptr(&self) -> *const T {
         self.vec.as_ptr()
     }
 
+    /// Get data a mutable raw pointer.
     #[inline]
     pub fn as_mut_ptr(&mut self) -> *mut T {
         self.vec.as_mut_ptr()
@@ -222,6 +281,9 @@ impl<T> RepeatedField<T> {
 }
 
 impl<T : Default + Clear> RepeatedField<T> {
+    /// Push default value.
+    /// This operation could be faster than `rf.push(Default::default())`,
+    /// because it may reuse previously allocated and cleared element.
     pub fn push_default<'a>(&'a mut self) -> &'a mut T {
         if self.len == self.vec.len() {
             self.vec.push(Default::default());
@@ -257,16 +319,19 @@ impl<T> Into<Vec<T>> for RepeatedField<T> {
 
 impl<T : Clone> RepeatedField<T> {
 
+    /// Copy slice data to `RepeatedField`
     #[inline]
     pub fn from_slice(values: &[T]) -> RepeatedField<T> {
         RepeatedField::from_vec(values.to_vec())
     }
 
+    /// Copy slice data to `RepeatedField`
     #[inline]
     pub fn from_ref<X: AsRef<[T]>>(values: X) -> RepeatedField<T> {
         RepeatedField::from_slice(values.as_ref())
     }
 
+    /// Copy this data into new vec.
     #[inline]
     pub fn to_vec(&self) -> Vec<T> {
         self.as_ref().to_vec()
@@ -309,6 +374,7 @@ impl<T : PartialEq> PartialEq for RepeatedField<T> {
 impl<T : Eq> Eq for RepeatedField<T> {}
 
 impl<T : PartialEq> RepeatedField<T> {
+    /// True iff this container contains given element.
     #[inline]
     pub fn contains(&self, value: &T) -> bool {
         self.as_ref().contains(value)

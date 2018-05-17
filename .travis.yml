@@ -24,9 +24,16 @@ before_install:
 script:
   - rustc --version
   # Full rebuild with regenerate
-  - PATH=/home/travis/bin:$PATH protobuf/full-rebuild.sh
-  - PATH=/home/travis/bin:$PATH ./protoc/test.sh
-  - test "$TRAVIS_RUST_VERSION" != "nightly" || PATH=/home/travis/bin:$PATH cargo build --all --features=with-bytes --bins --tests --examples --benches
+  - PATH=/home/travis/bin:$PATH cargo build --manifest-path=protobuf-codegen/Cargo.toml
+  # Regenerate only works when proto3
+  - PATH=/home/travis/bin:$PATH protobuf/regenerate_if_proto3.sh
+  - PATH=/home/travis/bin:$PATH cargo test --all
+  # `cargo test --all --features=FFF` doesn't work if there are crates without feature `FFF`
+  # hence the explicit list of tests
+  - PATH=/home/travis/bin:$PATH protobuf-test/test.sh
+  - PATH=/home/travis/bin:$PATH protobuf-codegen-pure-test/test.sh
+  - PATH=/home/travis/bin:$PATH protoc/test.sh
+  - PATH=/home/travis/bin:$PATH cargo build --all --all-targets
 
 notifications:
   email:

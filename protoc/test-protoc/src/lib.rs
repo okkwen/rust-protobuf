@@ -1,5 +1,6 @@
 extern crate protobuf;
 
-mod data;
+// do not compile
+// mod data;
 
-pub use data::FooBar;
+// pub use data::FooBar;

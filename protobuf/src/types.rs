@@ -8,9 +8,8 @@ use chars::Chars;
 use stream::CodedInputStream;
 use stream::CodedOutputStream;
 use error::ProtobufResult;
-use core::ProtobufEnum;
 use core::Message;
-use core::MessageStatic;
+use enums::ProtobufEnum;
 use wire_format::WireType;
 use rt;
 use reflect::ProtobufValue;
@@ -527,7 +526,7 @@ impl<E : ProtobufEnum + ProtobufValue> ProtobufType for ProtobufTypeEnum<E> {
     }
 }
 
-impl<M : Message + MessageStatic + ProtobufValue> ProtobufType for ProtobufTypeMessage<M> {
+impl<M : Message + Clone + ProtobufValue> ProtobufType for ProtobufTypeMessage<M> {
     type Value = M;
 
     fn wire_type() -> WireType {

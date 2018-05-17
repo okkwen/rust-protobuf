@@ -1,10 +1,10 @@
 [package]
 name = "protoc"
-version = "1.4.1"
+version = "1.7.0"
 authors = ["Stepan Koltsov <stepan.koltsov@gmail.com>"]
 license = "MIT/Apache-2.0"
-homepage = "https://github.com/stepancheg/rust-protobuf/protoc/"
-repository = "https://github.com/stepancheg/rust-protobuf/protoc/"
+homepage = "https://github.com/stepancheg/rust-protobuf/tree/master/protoc/"
+repository = "https://github.com/stepancheg/rust-protobuf/tree/master/protoc/"
 description = """
 Protobuf protoc command as API
 """

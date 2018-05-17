@@ -1,10 +1,10 @@
 [package]
 name = "protoc-rust"
-version = "1.4.1"
+version = "1.7.0"
 authors = ["Stepan Koltsov <stepan.koltsov@gmail.com>"]
 license = "MIT/Apache-2.0"
-homepage = "https://github.com/stepancheg/rust-protobuf/protoc-rust/"
-repository = "https://github.com/stepancheg/rust-protobuf/protoc-rust/"
+homepage = "https://github.com/stepancheg/rust-protobuf/tree/master/protoc-rust/"
+repository = "https://github.com/stepancheg/rust-protobuf/tree/master/protoc-rust/"
 description = """
 protoc --rust_out=... available as API. protoc needs to be in $PATH, protoc-gen-run does not.
 """
@@ -13,6 +13,7 @@ protoc --rust_out=... available as API. protoc needs to be in $PATH, protoc-gen-
 doctest = false
 
 [dependencies]
-protoc   = { path = "../protoc", version = "1.4.1" }
-protobuf = { path = "../protobuf", version = "1.4.1" }
+protoc   = { path = "../protoc", version = "1.7.0" }
+protobuf = { path = "../protobuf", version = "1.7.0" }
+protobuf-codegen = { path = "../protobuf-codegen", version = "1.7.0" }
 tempdir  = "0.3"

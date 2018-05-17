@@ -72,9 +72,9 @@ message TestAllTypes {
      bytes optional_bytes    = 15;
 
   // Groups are not allowed in proto3.
-//  // optional group OptionalGroup = 16 {
-//  //   optional int32 a = 17;
-//  // }
+  // optional group OptionalGroup = 16 {
+  //   optional int32 a = 17;
+  // }
 
   NestedMessage                        optional_nested_message  = 18;
   ForeignMessage                       optional_foreign_message = 19;
@@ -96,6 +96,8 @@ message TestAllTypes {
       optional_public_import_message = 26;
 
   NestedMessage optional_lazy_message = 27 [lazy=true];
+  protobuf_unittest_import.ImportMessage optional_lazy_import_message = 115
+      [lazy = true];
 
   // Repeated
   repeated    int32 repeated_int32    = 31;
@@ -115,9 +117,9 @@ message TestAllTypes {
   repeated    bytes repeated_bytes    = 45;
 
   // Groups are not allowed in proto3.
-//  // repeated group RepeatedGroup = 46 {
-//  //   optional int32 a = 47;
-//  // }
+  // repeated group RepeatedGroup = 46 {
+  //   optional int32 a = 47;
+  // }
 
   repeated NestedMessage                        repeated_nested_message  = 48;
   repeated ForeignMessage                       repeated_foreign_message = 49;
@@ -185,6 +187,7 @@ message TestUnpackedTypes {
 message NestedTestAllTypes {
   NestedTestAllTypes child = 1;
   TestAllTypes payload = 2;
+  repeated NestedTestAllTypes repeated_child = 3;
 }
 
 // Define these after TestAllTypes to make sure the compiler can handle
@@ -203,4 +206,3 @@ enum ForeignEnum {
 // TestEmptyMessage is used to test behavior of unknown fields.
 message TestEmptyMessage {
 }
-
