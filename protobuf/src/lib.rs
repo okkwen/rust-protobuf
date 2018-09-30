@@ -5,6 +5,8 @@
 
 #[cfg(feature = "bytes")]
 extern crate bytes;
+#[macro_use]
+extern crate lazy_static;
 
 pub use unknown::UnknownFields;
 pub use unknown::UnknownFieldsIter;
@@ -19,6 +21,7 @@ pub use clear::Clear;
 pub use core::Message;
 pub use core::parse_from_bytes;
 pub use core::parse_from_reader;
+pub use core::set_serialize_validate_fn;
 #[cfg(feature = "bytes")]
 pub use core::parse_from_carllerche_bytes;
 pub use core::parse_length_delimited_from;

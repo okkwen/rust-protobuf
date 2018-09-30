@@ -3,6 +3,8 @@ use std::any::TypeId;
 use std::fmt;
 use std::io::Read;
 use std::io::Write;
+use std::collections::HashMap;
+use std::sync::RwLock;
 
 #[cfg(feature = "bytes")]
 use bytes::Bytes;
@@ -17,6 +19,36 @@ use stream::CodedOutputStream;
 use stream::with_coded_output_stream_to_bytes;
 use error::ProtobufError;
 use error::ProtobufResult;
+
+type SerializeValidateFn = fn(&Message) -> bool;
+lazy_static! {
+    static ref TYPE_ID2VALIDATE_FN: RwLock<HashMap<TypeId, SerializeValidateFn>> = {
+        RwLock::new(HashMap::new())
+    };
+}
+
+pub fn set_serialize_validate_fn(type_id: TypeId, validate_fn: SerializeValidateFn) {
+    let mut fns = match TYPE_ID2VALIDATE_FN.write() {
+        Ok(fns) => fns,
+        Err(_) => return,
+    };
+
+    fns.insert(type_id, validate_fn);
+}
+
+fn serialize_validate(type_id: TypeId, message: &Message) -> bool {
+    let fns = match TYPE_ID2VALIDATE_FN.read() {
+        Ok(fns) => fns,
+        Err(_) => return true,
+    };
+
+    let validate_fn = match fns.get(&type_id) {
+        Some(f) => f,
+        None => return true,
+    };
+
+    validate_fn(message)
+}
 
 
 /// Trait implemented for all generated structs for protobuf messages.
@@ -109,8 +141,14 @@ pub trait Message: fmt::Debug + Clear + Any + Send + Sync {
     }
 
     /// Write the message to bytes vec.
-    fn write_to_bytes(&self) -> ProtobufResult<Vec<u8>> {
+    fn write_to_bytes(&self) -> ProtobufResult<Vec<u8>>
+        where Self: Sized
+    {
         self.check_initialized()?;
+
+        if !serialize_validate(self.type_id(), self) {
+            return Err(ProtobufError::MessageNotInitialized { message: "message validate failed" })
+        }
 
         let size = self.compute_size() as usize;
         let mut v = Vec::with_capacity(size);
