@@ -175,7 +175,7 @@ impl RustType {
             RustType::Message(ref name) => format!("{}::new()", name),
             RustType::Ref(ref m) if m.is_message() => {
                 match **m {
-                    RustType::Message(ref name) => format!("{}::default_instance()", name),
+                    RustType::Message(ref name) => format!("panic!()"),
                     _ => unreachable!(),
                 }
             }

@@ -12,8 +12,15 @@ use core::Message;
 use enums::ProtobufEnum;
 use wire_format::WireType;
 use rt;
+#[cfg(not(feature = "lite"))]
 use reflect::ProtobufValue;
 use unknown::UnknownValues;
+
+#[cfg(feature = "lite")]
+pub trait ProtobufValue {}
+
+#[cfg(feature = "lite")]
+impl<T> ProtobufValue for T {}
 
 pub trait ProtobufType {
     type Value: ProtobufValue + Clone + 'static;

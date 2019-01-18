@@ -38,8 +38,19 @@ protoc \
     ../proto/google/protobuf/compiler/* \
     ../proto/rustproto.proto
 
+protoc \
+    --plugin=protoc-gen-rust="$where_am_i/target/debug/protoc-gen-rust$exe_suffix" \
+    --rust_out tmp-generated-lite \
+    --rust_opt "serde_derive=true disable_reflect=true" \
+    -I../proto \
+    ../proto/google/protobuf/*.proto \
+    ../proto/google/protobuf/compiler/* \
+    ../proto/rustproto.proto
+
 mv tmp-generated/descriptor.rs tmp-generated/plugin.rs tmp-generated/rustproto.rs src/
 mv tmp-generated/*.rs src/well_known_types/
+mv tmp-generated-lite/descriptor.rs tmp-generated-lite/plugin.rs tmp-generated-lite/rustproto.rs src/lite/
+mv tmp-generated-lite/*.rs src/lite/well_known_types/
 (
     cd src/well_known_types
     exec > mod.rs

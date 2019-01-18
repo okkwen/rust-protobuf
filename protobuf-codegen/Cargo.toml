@@ -16,9 +16,6 @@ See `protoc-rust` and `protobuf-codegen-pure` crates.
 [lib]
 bench = false
 
-[features]
-lite = ["protobuf/lite"]
-
 [dependencies]
 protobuf = { path = "../protobuf", version = "=2.2.4" }
 

@@ -143,9 +143,7 @@ impl<'a> EnumGen<'a> {
             derive.push("PartialEq");
         }
         derive.push("Eq");
-        if self.customize.disable_reflect.unwrap_or(false) {
-            derive.push("Debug");
-        }
+        derive.push("Debug");
         if !self.allow_alias() {
             derive.push("Hash");
         } else {

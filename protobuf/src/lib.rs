@@ -40,8 +40,11 @@ pub use cached_size::CachedSize;
 pub use chars::Chars;
 
 // generated
+#[cfg_attr(feature = "lite", path = "lite/descriptor.rs")]
 pub mod descriptor;
+#[cfg_attr(feature = "lite", path = "lite/plugin.rs")]
 pub mod plugin;
+#[cfg_attr(feature = "lite", path = "lite/rustproto.rs")]
 pub mod rustproto;
 
 mod core;
@@ -52,11 +55,14 @@ pub mod compiler_plugin;
 mod repeated;
 mod singular;
 mod clear;
+#[cfg(not(feature = "lite"))]
 pub mod reflect;
+#[cfg(not(feature = "lite"))]
 pub mod text_format;
 pub mod stream;
 pub mod error;
 pub mod types;
+#[cfg_attr(feature = "lite", path = "lite/well_known_types/mod.rs")]
 pub mod well_known_types;
 pub mod ext;
 
@@ -88,12 +94,14 @@ mod buf_read_iter;
 mod protobuf {
     pub use descriptor;
     pub use descriptorx;
+    #[cfg(not(feature = "lite"))]
     pub use reflect;
     pub use core::*;
     pub use enums::ProtobufEnum;
     pub use error::*;
     pub use stream::*;
     pub use rt;
+    #[cfg(not(feature = "lite"))]
     pub use text_format;
     pub use types;
     pub use lazy;

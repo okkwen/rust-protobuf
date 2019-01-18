@@ -21,7 +21,7 @@
 use protobuf::Message as Message_imported_for_functions;
 use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 
-#[derive(PartialEq,Clone,Default)]
+#[derive(PartialEq,Clone,Default,Debug)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct Struct {
     // message fields
@@ -112,54 +112,9 @@ impl ::protobuf::Message for Struct {
         &mut self.unknown_fields
     }
 
-    fn as_any(&self) -> &::std::any::Any {
-        self as &::std::any::Any
-    }
-    fn as_any_mut(&mut self) -> &mut ::std::any::Any {
-        self as &mut ::std::any::Any
-    }
-    fn into_any(self: Box<Self>) -> ::std::boxed::Box<::std::any::Any> {
-        self
-    }
-
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        Self::descriptor_static()
-    }
 
     fn new() -> Struct {
         Struct::new()
-    }
-
-    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                let mut fields = ::std::vec::Vec::new();
-                fields.push(::protobuf::reflect::accessor::make_map_accessor::<_, ::protobuf::types::ProtobufTypeString, ::protobuf::types::ProtobufTypeMessage<Value>>(
-                    "fields",
-                    |m: &Struct| { &m.fields },
-                    |m: &mut Struct| { &mut m.fields },
-                ));
-                ::protobuf::reflect::MessageDescriptor::new::<Struct>(
-                    "Struct",
-                    fields,
-                    file_descriptor_proto()
-                )
-            })
-        }
-    }
-
-    fn default_instance() -> &'static Struct {
-        static mut instance: ::protobuf::lazy::Lazy<Struct> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const Struct,
-        };
-        unsafe {
-            instance.get(Struct::new)
-        }
     }
 }
 
@@ -170,19 +125,7 @@ impl ::protobuf::Clear for Struct {
     }
 }
 
-impl ::std::fmt::Debug for Struct {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
-    }
-}
-
-impl ::protobuf::reflect::ProtobufValue for Struct {
-    fn as_ref(&self) -> ::protobuf::reflect::ProtobufValueRef {
-        ::protobuf::reflect::ProtobufValueRef::Message(self)
-    }
-}
-
-#[derive(PartialEq,Clone,Default)]
+#[derive(PartialEq,Clone,Default,Debug)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct Value {
     // message oneof groups
@@ -194,7 +137,7 @@ pub struct Value {
     pub cached_size: ::protobuf::CachedSize,
 }
 
-#[derive(Clone,PartialEq)]
+#[derive(Clone,PartialEq,Debug)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub enum Value_oneof_kind {
     null_value(NullValue),
@@ -572,79 +515,9 @@ impl ::protobuf::Message for Value {
         &mut self.unknown_fields
     }
 
-    fn as_any(&self) -> &::std::any::Any {
-        self as &::std::any::Any
-    }
-    fn as_any_mut(&mut self) -> &mut ::std::any::Any {
-        self as &mut ::std::any::Any
-    }
-    fn into_any(self: Box<Self>) -> ::std::boxed::Box<::std::any::Any> {
-        self
-    }
-
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        Self::descriptor_static()
-    }
 
     fn new() -> Value {
         Value::new()
-    }
-
-    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                let mut fields = ::std::vec::Vec::new();
-                fields.push(::protobuf::reflect::accessor::make_singular_enum_accessor::<_, NullValue>(
-                    "null_value",
-                    Value::has_null_value,
-                    Value::get_null_value,
-                ));
-                fields.push(::protobuf::reflect::accessor::make_singular_f64_accessor::<_>(
-                    "number_value",
-                    Value::has_number_value,
-                    Value::get_number_value,
-                ));
-                fields.push(::protobuf::reflect::accessor::make_singular_string_accessor::<_>(
-                    "string_value",
-                    Value::has_string_value,
-                    Value::get_string_value,
-                ));
-                fields.push(::protobuf::reflect::accessor::make_singular_bool_accessor::<_>(
-                    "bool_value",
-                    Value::has_bool_value,
-                    Value::get_bool_value,
-                ));
-                fields.push(::protobuf::reflect::accessor::make_singular_message_accessor::<_, Struct>(
-                    "struct_value",
-                    Value::has_struct_value,
-                    Value::get_struct_value,
-                ));
-                fields.push(::protobuf::reflect::accessor::make_singular_message_accessor::<_, ListValue>(
-                    "list_value",
-                    Value::has_list_value,
-                    Value::get_list_value,
-                ));
-                ::protobuf::reflect::MessageDescriptor::new::<Value>(
-                    "Value",
-                    fields,
-                    file_descriptor_proto()
-                )
-            })
-        }
-    }
-
-    fn default_instance() -> &'static Value {
-        static mut instance: ::protobuf::lazy::Lazy<Value> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const Value,
-        };
-        unsafe {
-            instance.get(Value::new)
-        }
     }
 }
 
@@ -660,19 +533,7 @@ impl ::protobuf::Clear for Value {
     }
 }
 
-impl ::std::fmt::Debug for Value {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
-    }
-}
-
-impl ::protobuf::reflect::ProtobufValue for Value {
-    fn as_ref(&self) -> ::protobuf::reflect::ProtobufValueRef {
-        ::protobuf::reflect::ProtobufValueRef::Message(self)
-    }
-}
-
-#[derive(PartialEq,Clone,Default)]
+#[derive(PartialEq,Clone,Default,Debug)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct ListValue {
     // message fields
@@ -775,54 +636,9 @@ impl ::protobuf::Message for ListValue {
         &mut self.unknown_fields
     }
 
-    fn as_any(&self) -> &::std::any::Any {
-        self as &::std::any::Any
-    }
-    fn as_any_mut(&mut self) -> &mut ::std::any::Any {
-        self as &mut ::std::any::Any
-    }
-    fn into_any(self: Box<Self>) -> ::std::boxed::Box<::std::any::Any> {
-        self
-    }
-
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        Self::descriptor_static()
-    }
 
     fn new() -> ListValue {
         ListValue::new()
-    }
-
-    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                let mut fields = ::std::vec::Vec::new();
-                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Value>>(
-                    "values",
-                    |m: &ListValue| { &m.values },
-                    |m: &mut ListValue| { &mut m.values },
-                ));
-                ::protobuf::reflect::MessageDescriptor::new::<ListValue>(
-                    "ListValue",
-                    fields,
-                    file_descriptor_proto()
-                )
-            })
-        }
-    }
-
-    fn default_instance() -> &'static ListValue {
-        static mut instance: ::protobuf::lazy::Lazy<ListValue> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ListValue,
-        };
-        unsafe {
-            instance.get(ListValue::new)
-        }
     }
 }
 
@@ -830,18 +646,6 @@ impl ::protobuf::Clear for ListValue {
     fn clear(&mut self) {
         self.clear_values();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for ListValue {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
-    }
-}
-
-impl ::protobuf::reflect::ProtobufValue for ListValue {
-    fn as_ref(&self) -> ::protobuf::reflect::ProtobufValueRef {
-        ::protobuf::reflect::ProtobufValueRef::Message(self)
     }
 }
 
@@ -869,18 +673,6 @@ impl ::protobuf::ProtobufEnum for NullValue {
         ];
         values
     }
-
-    fn enum_descriptor_static() -> &'static ::protobuf::reflect::EnumDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::EnumDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::EnumDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                ::protobuf::reflect::EnumDescriptor::new("NullValue", file_descriptor_proto())
-            })
-        }
-    }
 }
 
 impl ::std::marker::Copy for NullValue {
@@ -892,143 +684,3 @@ impl ::std::default::Default for NullValue {
     }
 }
 
-impl ::protobuf::reflect::ProtobufValue for NullValue {
-    fn as_ref(&self) -> ::protobuf::reflect::ProtobufValueRef {
-        ::protobuf::reflect::ProtobufValueRef::Enum(self.descriptor())
-    }
-}
-
-static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\x1cgoogle/protobuf/struct.proto\x12\x0fgoogle.protobuf\"\x98\x01\n\
-    \x06Struct\x12;\n\x06fields\x18\x01\x20\x03(\x0b2#.google.protobuf.Struc\
-    t.FieldsEntryR\x06fields\x1aQ\n\x0bFieldsEntry\x12\x10\n\x03key\x18\x01\
-    \x20\x01(\tR\x03key\x12,\n\x05value\x18\x02\x20\x01(\x0b2\x16.google.pro\
-    tobuf.ValueR\x05value:\x028\x01\"\xb2\x02\n\x05Value\x12;\n\nnull_value\
-    \x18\x01\x20\x01(\x0e2\x1a.google.protobuf.NullValueH\0R\tnullValue\x12#\
-    \n\x0cnumber_value\x18\x02\x20\x01(\x01H\0R\x0bnumberValue\x12#\n\x0cstr\
-    ing_value\x18\x03\x20\x01(\tH\0R\x0bstringValue\x12\x1f\n\nbool_value\
-    \x18\x04\x20\x01(\x08H\0R\tboolValue\x12<\n\x0cstruct_value\x18\x05\x20\
-    \x01(\x0b2\x17.google.protobuf.StructH\0R\x0bstructValue\x12;\n\nlist_va\
-    lue\x18\x06\x20\x01(\x0b2\x1a.google.protobuf.ListValueH\0R\tlistValueB\
-    \x06\n\x04kind\";\n\tListValue\x12.\n\x06values\x18\x01\x20\x03(\x0b2\
-    \x16.google.protobuf.ValueR\x06values*\x1b\n\tNullValue\x12\x0e\n\nNULL_\
-    VALUE\x10\0B\x81\x01\n\x13com.google.protobufB\x0bStructProtoP\x01Z1gith\
-    ub.com/golang/protobuf/ptypes/struct;structpb\xf8\x01\x01\xa2\x02\x03GPB\
-    \xaa\x02\x1eGoogle.Protobuf.WellKnownTypesJ\xa8\x1d\n\x06\x12\x04\x1e\0_\
-    \x01\n\xcc\x0c\n\x01\x0c\x12\x03\x1e\0\x122\xc1\x0c\x20Protocol\x20Buffe\
-    rs\x20-\x20Google's\x20data\x20interchange\x20format\n\x20Copyright\x202\
-    008\x20Google\x20Inc.\x20\x20All\x20rights\x20reserved.\n\x20https://dev\
-    elopers.google.com/protocol-buffers/\n\n\x20Redistribution\x20and\x20use\
-    \x20in\x20source\x20and\x20binary\x20forms,\x20with\x20or\x20without\n\
-    \x20modification,\x20are\x20permitted\x20provided\x20that\x20the\x20foll\
-    owing\x20conditions\x20are\n\x20met:\n\n\x20\x20\x20\x20\x20*\x20Redistr\
-    ibutions\x20of\x20source\x20code\x20must\x20retain\x20the\x20above\x20co\
-    pyright\n\x20notice,\x20this\x20list\x20of\x20conditions\x20and\x20the\
-    \x20following\x20disclaimer.\n\x20\x20\x20\x20\x20*\x20Redistributions\
-    \x20in\x20binary\x20form\x20must\x20reproduce\x20the\x20above\n\x20copyr\
-    ight\x20notice,\x20this\x20list\x20of\x20conditions\x20and\x20the\x20fol\
-    lowing\x20disclaimer\n\x20in\x20the\x20documentation\x20and/or\x20other\
-    \x20materials\x20provided\x20with\x20the\n\x20distribution.\n\x20\x20\
-    \x20\x20\x20*\x20Neither\x20the\x20name\x20of\x20Google\x20Inc.\x20nor\
-    \x20the\x20names\x20of\x20its\n\x20contributors\x20may\x20be\x20used\x20\
-    to\x20endorse\x20or\x20promote\x20products\x20derived\x20from\n\x20this\
-    \x20software\x20without\x20specific\x20prior\x20written\x20permission.\n\
-    \n\x20THIS\x20SOFTWARE\x20IS\x20PROVIDED\x20BY\x20THE\x20COPYRIGHT\x20HO\
-    LDERS\x20AND\x20CONTRIBUTORS\n\x20\"AS\x20IS\"\x20AND\x20ANY\x20EXPRESS\
-    \x20OR\x20IMPLIED\x20WARRANTIES,\x20INCLUDING,\x20BUT\x20NOT\n\x20LIMITE\
-    D\x20TO,\x20THE\x20IMPLIED\x20WARRANTIES\x20OF\x20MERCHANTABILITY\x20AND\
-    \x20FITNESS\x20FOR\n\x20A\x20PARTICULAR\x20PURPOSE\x20ARE\x20DISCLAIMED.\
-    \x20IN\x20NO\x20EVENT\x20SHALL\x20THE\x20COPYRIGHT\n\x20OWNER\x20OR\x20C\
-    ONTRIBUTORS\x20BE\x20LIABLE\x20FOR\x20ANY\x20DIRECT,\x20INDIRECT,\x20INC\
-    IDENTAL,\n\x20SPECIAL,\x20EXEMPLARY,\x20OR\x20CONSEQUENTIAL\x20DAMAGES\
-    \x20(INCLUDING,\x20BUT\x20NOT\n\x20LIMITED\x20TO,\x20PROCUREMENT\x20OF\
-    \x20SUBSTITUTE\x20GOODS\x20OR\x20SERVICES;\x20LOSS\x20OF\x20USE,\n\x20DA\
-    TA,\x20OR\x20PROFITS;\x20OR\x20BUSINESS\x20INTERRUPTION)\x20HOWEVER\x20C\
-    AUSED\x20AND\x20ON\x20ANY\n\x20THEORY\x20OF\x20LIABILITY,\x20WHETHER\x20\
-    IN\x20CONTRACT,\x20STRICT\x20LIABILITY,\x20OR\x20TORT\n\x20(INCLUDING\
-    \x20NEGLIGENCE\x20OR\x20OTHERWISE)\x20ARISING\x20IN\x20ANY\x20WAY\x20OUT\
-    \x20OF\x20THE\x20USE\n\x20OF\x20THIS\x20SOFTWARE,\x20EVEN\x20IF\x20ADVIS\
-    ED\x20OF\x20THE\x20POSSIBILITY\x20OF\x20SUCH\x20DAMAGE.\n\n\x08\n\x01\
-    \x02\x12\x03\x20\x08\x17\n\x08\n\x01\x08\x12\x03\"\0;\n\t\n\x02\x08%\x12\
-    \x03\"\0;\n\x08\n\x01\x08\x12\x03#\0\x1f\n\t\n\x02\x08\x1f\x12\x03#\0\
-    \x1f\n\x08\n\x01\x08\x12\x03$\0H\n\t\n\x02\x08\x0b\x12\x03$\0H\n\x08\n\
-    \x01\x08\x12\x03%\0,\n\t\n\x02\x08\x01\x12\x03%\0,\n\x08\n\x01\x08\x12\
-    \x03&\0,\n\t\n\x02\x08\x08\x12\x03&\0,\n\x08\n\x01\x08\x12\x03'\0\"\n\t\
-    \n\x02\x08\n\x12\x03'\0\"\n\x08\n\x01\x08\x12\x03(\0!\n\t\n\x02\x08$\x12\
-    \x03(\0!\n\xb3\x03\n\x02\x04\0\x12\x043\06\x01\x1a\xa6\x03\x20`Struct`\
-    \x20represents\x20a\x20structured\x20data\x20value,\x20consisting\x20of\
-    \x20fields\n\x20which\x20map\x20to\x20dynamically\x20typed\x20values.\
-    \x20In\x20some\x20languages,\x20`Struct`\n\x20might\x20be\x20supported\
-    \x20by\x20a\x20native\x20representation.\x20For\x20example,\x20in\n\x20s\
-    cripting\x20languages\x20like\x20JS\x20a\x20struct\x20is\x20represented\
-    \x20as\x20an\n\x20object.\x20The\x20details\x20of\x20that\x20representat\
-    ion\x20are\x20described\x20together\n\x20with\x20the\x20proto\x20support\
-    \x20for\x20the\x20language.\n\n\x20The\x20JSON\x20representation\x20for\
-    \x20`Struct`\x20is\x20JSON\x20object.\n\n\n\n\x03\x04\0\x01\x12\x033\x08\
-    \x0e\n9\n\x04\x04\0\x02\0\x12\x035\x02\x20\x1a,\x20Unordered\x20map\x20o\
-    f\x20dynamically\x20typed\x20values.\n\n\r\n\x05\x04\0\x02\0\x04\x12\x04\
-    5\x023\x10\n\x0c\n\x05\x04\0\x02\0\x06\x12\x035\x02\x14\n\x0c\n\x05\x04\
-    \0\x02\0\x01\x12\x035\x15\x1b\n\x0c\n\x05\x04\0\x02\0\x03\x12\x035\x1e\
-    \x1f\n\xc3\x02\n\x02\x04\x01\x12\x04>\0N\x01\x1a\xb6\x02\x20`Value`\x20r\
-    epresents\x20a\x20dynamically\x20typed\x20value\x20which\x20can\x20be\
-    \x20either\n\x20null,\x20a\x20number,\x20a\x20string,\x20a\x20boolean,\
-    \x20a\x20recursive\x20struct\x20value,\x20or\x20a\n\x20list\x20of\x20val\
-    ues.\x20A\x20producer\x20of\x20value\x20is\x20expected\x20to\x20set\x20o\
-    ne\x20of\x20that\n\x20variants,\x20absence\x20of\x20any\x20variant\x20in\
-    dicates\x20an\x20error.\n\n\x20The\x20JSON\x20representation\x20for\x20`\
-    Value`\x20is\x20JSON\x20value.\n\n\n\n\x03\x04\x01\x01\x12\x03>\x08\r\n\
-    \"\n\x04\x04\x01\x08\0\x12\x04@\x02M\x03\x1a\x14\x20The\x20kind\x20of\
-    \x20value.\n\n\x0c\n\x05\x04\x01\x08\0\x01\x12\x03@\x08\x0c\n'\n\x04\x04\
-    \x01\x02\0\x12\x03B\x04\x1d\x1a\x1a\x20Represents\x20a\x20null\x20value.\
-    \n\n\x0c\n\x05\x04\x01\x02\0\x06\x12\x03B\x04\r\n\x0c\n\x05\x04\x01\x02\
-    \0\x01\x12\x03B\x0e\x18\n\x0c\n\x05\x04\x01\x02\0\x03\x12\x03B\x1b\x1c\n\
-    )\n\x04\x04\x01\x02\x01\x12\x03D\x04\x1c\x1a\x1c\x20Represents\x20a\x20d\
-    ouble\x20value.\n\n\x0c\n\x05\x04\x01\x02\x01\x05\x12\x03D\x04\n\n\x0c\n\
-    \x05\x04\x01\x02\x01\x01\x12\x03D\x0b\x17\n\x0c\n\x05\x04\x01\x02\x01\
-    \x03\x12\x03D\x1a\x1b\n)\n\x04\x04\x01\x02\x02\x12\x03F\x04\x1c\x1a\x1c\
-    \x20Represents\x20a\x20string\x20value.\n\n\x0c\n\x05\x04\x01\x02\x02\
-    \x05\x12\x03F\x04\n\n\x0c\n\x05\x04\x01\x02\x02\x01\x12\x03F\x0b\x17\n\
-    \x0c\n\x05\x04\x01\x02\x02\x03\x12\x03F\x1a\x1b\n*\n\x04\x04\x01\x02\x03\
-    \x12\x03H\x04\x18\x1a\x1d\x20Represents\x20a\x20boolean\x20value.\n\n\
-    \x0c\n\x05\x04\x01\x02\x03\x05\x12\x03H\x04\x08\n\x0c\n\x05\x04\x01\x02\
-    \x03\x01\x12\x03H\t\x13\n\x0c\n\x05\x04\x01\x02\x03\x03\x12\x03H\x16\x17\
-    \n-\n\x04\x04\x01\x02\x04\x12\x03J\x04\x1c\x1a\x20\x20Represents\x20a\
-    \x20structured\x20value.\n\n\x0c\n\x05\x04\x01\x02\x04\x06\x12\x03J\x04\
-    \n\n\x0c\n\x05\x04\x01\x02\x04\x01\x12\x03J\x0b\x17\n\x0c\n\x05\x04\x01\
-    \x02\x04\x03\x12\x03J\x1a\x1b\n-\n\x04\x04\x01\x02\x05\x12\x03L\x04\x1d\
-    \x1a\x20\x20Represents\x20a\x20repeated\x20`Value`.\n\n\x0c\n\x05\x04\
-    \x01\x02\x05\x06\x12\x03L\x04\r\n\x0c\n\x05\x04\x01\x02\x05\x01\x12\x03L\
-    \x0e\x18\n\x0c\n\x05\x04\x01\x02\x05\x03\x12\x03L\x1b\x1c\n\xa9\x01\n\
-    \x02\x05\0\x12\x04T\0W\x01\x1a\x9c\x01\x20`NullValue`\x20is\x20a\x20sing\
-    leton\x20enumeration\x20to\x20represent\x20the\x20null\x20value\x20for\
-    \x20the\n\x20`Value`\x20type\x20union.\n\n\x20\x20The\x20JSON\x20represe\
-    ntation\x20for\x20`NullValue`\x20is\x20JSON\x20`null`.\n\n\n\n\x03\x05\0\
-    \x01\x12\x03T\x05\x0e\n\x1a\n\x04\x05\0\x02\0\x12\x03V\x02\x11\x1a\r\x20\
-    Null\x20value.\n\n\x0c\n\x05\x05\0\x02\0\x01\x12\x03V\x02\x0c\n\x0c\n\
-    \x05\x05\0\x02\0\x02\x12\x03V\x0f\x10\n\x82\x01\n\x02\x04\x02\x12\x04\\\
-    \0_\x01\x1av\x20`ListValue`\x20is\x20a\x20wrapper\x20around\x20a\x20repe\
-    ated\x20field\x20of\x20values.\n\n\x20The\x20JSON\x20representation\x20f\
-    or\x20`ListValue`\x20is\x20JSON\x20array.\n\n\n\n\x03\x04\x02\x01\x12\
-    \x03\\\x08\x11\n:\n\x04\x04\x02\x02\0\x12\x03^\x02\x1c\x1a-\x20Repeated\
-    \x20field\x20of\x20dynamically\x20typed\x20values.\n\n\x0c\n\x05\x04\x02\
-    \x02\0\x04\x12\x03^\x02\n\n\x0c\n\x05\x04\x02\x02\0\x06\x12\x03^\x0b\x10\
-    \n\x0c\n\x05\x04\x02\x02\0\x01\x12\x03^\x11\x17\n\x0c\n\x05\x04\x02\x02\
-    \0\x03\x12\x03^\x1a\x1bb\x06proto3\
-";
-
-static mut file_descriptor_proto_lazy: ::protobuf::lazy::Lazy<::protobuf::descriptor::FileDescriptorProto> = ::protobuf::lazy::Lazy {
-    lock: ::protobuf::lazy::ONCE_INIT,
-    ptr: 0 as *const ::protobuf::descriptor::FileDescriptorProto,
-};
-
-fn parse_descriptor_proto() -> ::protobuf::descriptor::FileDescriptorProto {
-    ::protobuf::parse_from_bytes(file_descriptor_proto_data).unwrap()
-}
-
-pub fn file_descriptor_proto() -> &'static ::protobuf::descriptor::FileDescriptorProto {
-    unsafe {
-        file_descriptor_proto_lazy.get(|| {
-            parse_descriptor_proto()
-        })
-    }
-}

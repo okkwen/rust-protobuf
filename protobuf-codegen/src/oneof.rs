@@ -154,7 +154,7 @@ impl<'a> OneofGen<'a> {
 
     pub fn write_enum(&self, w: &mut CodeWriter) {
         let mut derive = vec!["Clone", "PartialEq"];
-        if self.lite_runtime {
+        if self.lite_runtime || self.customize.disable_reflect.unwrap_or(false) {
             derive.push("Debug");
         }
         w.derive(&derive);

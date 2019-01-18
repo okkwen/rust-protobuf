@@ -1,4 +1,6 @@
+#[cfg(not(feature = "lite"))]
 use reflect::EnumDescriptor;
+#[cfg(not(feature = "lite"))]
 use reflect::EnumValueDescriptor;
 
 
@@ -17,16 +19,19 @@ pub trait ProtobufEnum: Eq + Sized + Copy + 'static {
     }
 
     /// Get enum value descriptor.
+    #[cfg(not(feature = "lite"))]
     fn descriptor(&self) -> &'static EnumValueDescriptor {
         self.enum_descriptor().value_by_number(self.value())
     }
 
     /// Get enum descriptor.
+    #[cfg(not(feature = "lite"))]
     fn enum_descriptor(&self) -> &'static EnumDescriptor {
         Self::enum_descriptor_static()
     }
 
     /// Get enum descriptor by type.
+    #[cfg(not(feature = "lite"))]
     fn enum_descriptor_static() -> &'static EnumDescriptor {
         panic!();
     }

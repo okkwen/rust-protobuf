@@ -423,6 +423,7 @@ pub struct FieldGen<'a> {
     pub kind: FieldKind,
     pub expose_field: bool,
     pub generate_accessors: bool,
+    pub disable_reflect: bool
 }
 
 impl<'a> FieldGen<'a> {
@@ -482,6 +483,7 @@ impl<'a> FieldGen<'a> {
             kind: kind,
             expose_field: expose_field,
             generate_accessors: generate_accessors,
+            disable_reflect: customize.disable_reflect.unwrap_or(false)
         }
     }
 
@@ -1570,11 +1572,18 @@ impl<'a> FieldGen<'a> {
         if self.proto_type == FieldDescriptorProto_Type::TYPE_MESSAGE {
             let self_field = self.self_field();
             let ref field_type_name = self.elem().rust_storage_type();
-            w.write_line(&format!(
-                "{}.as_ref().unwrap_or_else(|| {}::default_instance())",
-                self_field,
-                field_type_name
-            ));
+            if self.disable_reflect {
+                w.write_line(&format!(
+                    "{}.as_ref().unwrap()",
+                    self_field,
+                ));
+            } else {
+                w.write_line(&format!(
+                    "{}.as_ref().unwrap_or_else(|| {}::default_instance())",
+                    self_field,
+                    field_type_name
+                ));
+            }
         } else {
             let get_xxx_default_value_rust = self.get_xxx_default_value_rust();
             let self_field = self.self_field();

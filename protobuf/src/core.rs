@@ -8,6 +8,7 @@ use std::io::Write;
 use bytes::Bytes;
 
 use clear::Clear;
+#[cfg(not(feature = "lite"))]
 use reflect::MessageDescriptor;
 use unknown::UnknownFields;
 use stream::WithCodedInputStream;
