@@ -21,7 +21,7 @@
 use protobuf::Message as Message_imported_for_functions;
 use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct Struct {
     // message fields
@@ -40,9 +40,6 @@ impl Struct {
 
     // repeated .google.protobuf.Struct.FieldsEntry fields = 1;
 
-    pub fn clear_fields(&mut self) {
-        self.fields.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_fields(&mut self, v: ::std::collections::HashMap<::std::string::String, Value>) {
@@ -118,14 +115,7 @@ impl ::protobuf::Message for Struct {
     }
 }
 
-impl ::protobuf::Clear for Struct {
-    fn clear(&mut self) {
-        self.clear_fields();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct Value {
     // message oneof groups
@@ -137,7 +127,7 @@ pub struct Value {
     pub cached_size: ::protobuf::CachedSize,
 }
 
-#[derive(Clone,PartialEq,Debug)]
+#[derive(Clone,PartialEq)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub enum Value_oneof_kind {
     null_value(NullValue),
@@ -155,9 +145,6 @@ impl Value {
 
     // .google.protobuf.NullValue null_value = 1;
 
-    pub fn clear_null_value(&mut self) {
-        self.kind = ::std::option::Option::None;
-    }
 
     pub fn has_null_value(&self) -> bool {
         match self.kind {
@@ -180,9 +167,6 @@ impl Value {
 
     // double number_value = 2;
 
-    pub fn clear_number_value(&mut self) {
-        self.kind = ::std::option::Option::None;
-    }
 
     pub fn has_number_value(&self) -> bool {
         match self.kind {
@@ -205,9 +189,6 @@ impl Value {
 
     // string string_value = 3;
 
-    pub fn clear_string_value(&mut self) {
-        self.kind = ::std::option::Option::None;
-    }
 
     pub fn has_string_value(&self) -> bool {
         match self.kind {
@@ -254,9 +235,6 @@ impl Value {
 
     // bool bool_value = 4;
 
-    pub fn clear_bool_value(&mut self) {
-        self.kind = ::std::option::Option::None;
-    }
 
     pub fn has_bool_value(&self) -> bool {
         match self.kind {
@@ -279,9 +257,6 @@ impl Value {
 
     // .google.protobuf.Struct struct_value = 5;
 
-    pub fn clear_struct_value(&mut self) {
-        self.kind = ::std::option::Option::None;
-    }
 
     pub fn has_struct_value(&self) -> bool {
         match self.kind {
@@ -328,9 +303,6 @@ impl Value {
 
     // .google.protobuf.ListValue list_value = 6;
 
-    pub fn clear_list_value(&mut self) {
-        self.kind = ::std::option::Option::None;
-    }
 
     pub fn has_list_value(&self) -> bool {
         match self.kind {
@@ -521,19 +493,7 @@ impl ::protobuf::Message for Value {
     }
 }
 
-impl ::protobuf::Clear for Value {
-    fn clear(&mut self) {
-        self.clear_null_value();
-        self.clear_number_value();
-        self.clear_string_value();
-        self.clear_bool_value();
-        self.clear_struct_value();
-        self.clear_list_value();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct ListValue {
     // message fields
@@ -552,9 +512,6 @@ impl ListValue {
 
     // repeated .google.protobuf.Value values = 1;
 
-    pub fn clear_values(&mut self) {
-        self.values.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_values(&mut self, v: ::protobuf::RepeatedField<Value>) {
@@ -642,14 +599,7 @@ impl ::protobuf::Message for ListValue {
     }
 }
 
-impl ::protobuf::Clear for ListValue {
-    fn clear(&mut self) {
-        self.clear_values();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(Clone,PartialEq,Eq,Debug,Hash)]
+#[derive(Clone,PartialEq,Eq,Hash)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub enum NullValue {
     NULL_VALUE = 0,

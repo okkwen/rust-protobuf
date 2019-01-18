@@ -21,7 +21,7 @@
 use protobuf::Message as Message_imported_for_functions;
 use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct CodeGeneratorRequest {
     // message fields
@@ -42,9 +42,6 @@ impl CodeGeneratorRequest {
 
     // repeated string file_to_generate = 1;
 
-    pub fn clear_file_to_generate(&mut self) {
-        self.file_to_generate.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_file_to_generate(&mut self, v: ::protobuf::RepeatedField<::std::string::String>) {
@@ -67,9 +64,6 @@ impl CodeGeneratorRequest {
 
     // optional string parameter = 2;
 
-    pub fn clear_parameter(&mut self) {
-        self.parameter.clear();
-    }
 
     pub fn has_parameter(&self) -> bool {
         self.parameter.is_some()
@@ -103,9 +97,6 @@ impl CodeGeneratorRequest {
 
     // repeated .google.protobuf.FileDescriptorProto proto_file = 15;
 
-    pub fn clear_proto_file(&mut self) {
-        self.proto_file.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_proto_file(&mut self, v: ::protobuf::RepeatedField<::protobuf::descriptor::FileDescriptorProto>) {
@@ -211,16 +202,7 @@ impl ::protobuf::Message for CodeGeneratorRequest {
     }
 }
 
-impl ::protobuf::Clear for CodeGeneratorRequest {
-    fn clear(&mut self) {
-        self.clear_file_to_generate();
-        self.clear_parameter();
-        self.clear_proto_file();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct CodeGeneratorResponse {
     // message fields
@@ -240,9 +222,6 @@ impl CodeGeneratorResponse {
 
     // optional string error = 1;
 
-    pub fn clear_error(&mut self) {
-        self.error.clear();
-    }
 
     pub fn has_error(&self) -> bool {
         self.error.is_some()
@@ -276,9 +255,6 @@ impl CodeGeneratorResponse {
 
     // repeated .google.protobuf.compiler.CodeGeneratorResponse.File file = 15;
 
-    pub fn clear_file(&mut self) {
-        self.file.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_file(&mut self, v: ::protobuf::RepeatedField<CodeGeneratorResponse_File>) {
@@ -375,15 +351,7 @@ impl ::protobuf::Message for CodeGeneratorResponse {
     }
 }
 
-impl ::protobuf::Clear for CodeGeneratorResponse {
-    fn clear(&mut self) {
-        self.clear_error();
-        self.clear_file();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct CodeGeneratorResponse_File {
     // message fields
@@ -404,9 +372,6 @@ impl CodeGeneratorResponse_File {
 
     // optional string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     pub fn has_name(&self) -> bool {
         self.name.is_some()
@@ -440,9 +405,6 @@ impl CodeGeneratorResponse_File {
 
     // optional string insertion_point = 2;
 
-    pub fn clear_insertion_point(&mut self) {
-        self.insertion_point.clear();
-    }
 
     pub fn has_insertion_point(&self) -> bool {
         self.insertion_point.is_some()
@@ -476,9 +438,6 @@ impl CodeGeneratorResponse_File {
 
     // optional string content = 15;
 
-    pub fn clear_content(&mut self) {
-        self.content.clear();
-    }
 
     pub fn has_content(&self) -> bool {
         self.content.is_some()
@@ -584,14 +543,5 @@ impl ::protobuf::Message for CodeGeneratorResponse_File {
 
     fn new() -> CodeGeneratorResponse_File {
         CodeGeneratorResponse_File::new()
-    }
-}
-
-impl ::protobuf::Clear for CodeGeneratorResponse_File {
-    fn clear(&mut self) {
-        self.clear_name();
-        self.clear_insertion_point();
-        self.clear_content();
-        self.unknown_fields.clear();
     }
 }

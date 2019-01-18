@@ -21,7 +21,7 @@
 use protobuf::Message as Message_imported_for_functions;
 use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct FieldMask {
     // message fields
@@ -40,9 +40,6 @@ impl FieldMask {
 
     // repeated string paths = 1;
 
-    pub fn clear_paths(&mut self) {
-        self.paths.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_paths(&mut self, v: ::protobuf::RepeatedField<::std::string::String>) {
@@ -119,12 +116,5 @@ impl ::protobuf::Message for FieldMask {
 
     fn new() -> FieldMask {
         FieldMask::new()
-    }
-}
-
-impl ::protobuf::Clear for FieldMask {
-    fn clear(&mut self) {
-        self.clear_paths();
-        self.unknown_fields.clear();
     }
 }

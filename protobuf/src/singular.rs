@@ -314,6 +314,30 @@ impl<T> SingularPtrField<T> {
     }
 }
 
+#[cfg(feature = "lite")]
+impl<T : Default> SingularField<T> {
+    /// Get contained data, consume self. Return default value for type if this is empty.
+    #[inline]
+    pub fn unwrap_or_default(mut self) -> T {
+        if self.set {
+            self.value
+        } else {
+            T::default()
+        }
+    }
+
+    /// Initialize this object with default value.
+    /// This operation can be more efficient then construction of clear element,
+    /// because it may reuse previously contained object.
+    #[inline]
+    pub fn set_default<'a>(&'a mut self) -> &'a mut T {
+        self.set = true;
+        self.value = T::default();
+        &mut self.value
+    }
+}
+
+#[cfg(not(feature = "lite"))]
 impl<T : Default + Clear> SingularField<T> {
     /// Get contained data, consume self. Return default value for type if this is empty.
     #[inline]
@@ -333,6 +357,33 @@ impl<T : Default + Clear> SingularField<T> {
     }
 }
 
+#[cfg(feature = "lite")]
+impl<T : Default> SingularPtrField<T> {
+    /// Get contained data, consume self. Return default value for type if this is empty.
+    #[inline]
+    pub fn unwrap_or_default(mut self) -> T {
+        if self.set {
+            self.unwrap()
+        } else if self.value.is_some() {
+            self.value = Some(Box::new(T::default()));
+            *self.value.unwrap()
+        } else {
+            Default::default()
+        }
+    }
+
+    /// Initialize this object with default value.
+    /// This operation can be more efficient then construction of clear element,
+    /// because it may reuse previously contained object.
+    #[inline]
+    pub fn set_default<'a>(&'a mut self) -> &'a mut T {
+        self.set = true;
+        self.value = Some(Default::default());
+        self.as_mut().unwrap()
+    }
+}
+
+#[cfg(not(feature = "lite"))]
 impl<T : Default + Clear> SingularPtrField<T> {
     /// Get contained data, consume self. Return default value for type if this is empty.
     #[inline]

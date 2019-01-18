@@ -19,10 +19,22 @@ use stream::with_coded_output_stream_to_bytes;
 use error::ProtobufError;
 use error::ProtobufResult;
 
+#[cfg(not(feature = "lite"))]
+pub trait MessageCore: fmt::Debug + Clear + Any + Send + Sync {}
+
+#[cfg(not(feature = "lite"))]
+impl<T: fmt::Debug + Clear + Any + Send + Sync> MessageCore for T {}
+
+#[cfg(feature = "lite")]
+pub trait MessageCore: Any + Send + Sync {}
+
+#[cfg(feature = "lite")]
+impl<T: Any + Send + Sync> MessageCore for T {}
+
 
 /// Trait implemented for all generated structs for protobuf messages.
 /// Also, generated messages implement `Clone + Default + PartialEq`
-pub trait Message: fmt::Debug + Clear + Any + Send + Sync {
+pub trait Message: MessageCore {
     /// Message descriptor for this message, used for reflection.
     #[cfg(not(feature = "lite"))]
     fn descriptor(&self) -> &'static MessageDescriptor;

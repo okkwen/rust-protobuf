@@ -439,6 +439,12 @@ impl ::protobuf::Message for Api {
     }
 }
 
+impl ::std::fmt::Debug for Api {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for Api {
     fn clear(&mut self) {
         self.clear_name();
@@ -449,12 +455,6 @@ impl ::protobuf::Clear for Api {
         self.clear_mixins();
         self.clear_syntax();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for Api {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -839,6 +839,12 @@ impl ::protobuf::Message for Method {
     }
 }
 
+impl ::std::fmt::Debug for Method {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for Method {
     fn clear(&mut self) {
         self.clear_name();
@@ -849,12 +855,6 @@ impl ::protobuf::Clear for Method {
         self.clear_options();
         self.clear_syntax();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for Method {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -1052,17 +1052,17 @@ impl ::protobuf::Message for Mixin {
     }
 }
 
+impl ::std::fmt::Debug for Mixin {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for Mixin {
     fn clear(&mut self) {
         self.clear_name();
         self.clear_root();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for Mixin {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 

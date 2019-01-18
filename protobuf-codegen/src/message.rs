@@ -390,7 +390,7 @@ impl<'a> MessageGen<'a> {
 
     fn write_struct(&self, w: &mut CodeWriter) {
         let mut derive = vec!["PartialEq", "Clone", "Default"];
-        if self.lite_runtime || self.customize.disable_reflect.unwrap_or(false) {
+        if self.lite_runtime && !self.customize.disable_reflect.unwrap_or(false) {
             derive.push("Debug");
         }
         w.derive(&derive);
@@ -455,13 +455,13 @@ impl<'a> MessageGen<'a> {
         self.write_impl_self(w);
         w.write_line("");
         self.write_impl_message(w);
-        w.write_line("");
-        self.write_impl_clear(w);
         if !self.lite_runtime && !self.customize.disable_reflect.unwrap_or(false) {
             w.write_line("");
             self.write_impl_show(w);
         }
         if !self.customize.disable_reflect.unwrap_or(false) {
+            w.write_line("");
+            self.write_impl_clear(w);
             w.write_line("");
             self.write_impl_value(w);
         }

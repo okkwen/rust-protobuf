@@ -21,7 +21,7 @@
 use protobuf::Message as Message_imported_for_functions;
 use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct Any {
     // message fields
@@ -41,9 +41,6 @@ impl Any {
 
     // string type_url = 1;
 
-    pub fn clear_type_url(&mut self) {
-        self.type_url.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_type_url(&mut self, v: ::std::string::String) {
@@ -67,9 +64,6 @@ impl Any {
 
     // bytes value = 2;
 
-    pub fn clear_value(&mut self) {
-        self.value.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: ::std::vec::Vec<u8>) {
@@ -156,13 +150,5 @@ impl ::protobuf::Message for Any {
 
     fn new() -> Any {
         Any::new()
-    }
-}
-
-impl ::protobuf::Clear for Any {
-    fn clear(&mut self) {
-        self.clear_type_url();
-        self.clear_value();
-        self.unknown_fields.clear();
     }
 }

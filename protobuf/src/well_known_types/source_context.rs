@@ -168,16 +168,16 @@ impl ::protobuf::Message for SourceContext {
     }
 }
 
+impl ::std::fmt::Debug for SourceContext {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for SourceContext {
     fn clear(&mut self) {
         self.clear_file_name();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for SourceContext {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 

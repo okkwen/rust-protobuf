@@ -21,7 +21,7 @@
 use protobuf::Message as Message_imported_for_functions;
 use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct Empty {
     // special fields
@@ -83,11 +83,5 @@ impl ::protobuf::Message for Empty {
 
     fn new() -> Empty {
         Empty::new()
-    }
-}
-
-impl ::protobuf::Clear for Empty {
-    fn clear(&mut self) {
-        self.unknown_fields.clear();
     }
 }

@@ -126,15 +126,15 @@ impl ::protobuf::Message for Empty {
     }
 }
 
-impl ::protobuf::Clear for Empty {
-    fn clear(&mut self) {
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for Empty {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)
+    }
+}
+
+impl ::protobuf::Clear for Empty {
+    fn clear(&mut self) {
+        self.unknown_fields.clear();
     }
 }
 

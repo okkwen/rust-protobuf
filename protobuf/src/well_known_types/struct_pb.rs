@@ -163,16 +163,16 @@ impl ::protobuf::Message for Struct {
     }
 }
 
+impl ::std::fmt::Debug for Struct {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for Struct {
     fn clear(&mut self) {
         self.clear_fields();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for Struct {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -648,6 +648,12 @@ impl ::protobuf::Message for Value {
     }
 }
 
+impl ::std::fmt::Debug for Value {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for Value {
     fn clear(&mut self) {
         self.clear_null_value();
@@ -657,12 +663,6 @@ impl ::protobuf::Clear for Value {
         self.clear_struct_value();
         self.clear_list_value();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for Value {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -826,16 +826,16 @@ impl ::protobuf::Message for ListValue {
     }
 }
 
+impl ::std::fmt::Debug for ListValue {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for ListValue {
     fn clear(&mut self) {
         self.clear_values();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for ListValue {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 

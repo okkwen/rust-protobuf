@@ -1876,9 +1876,11 @@ impl<'a> FieldGen<'a> {
 
     pub fn write_message_single_field_accessors(&self, w: &mut CodeWriter) {
         let clear_field_func = self.clear_field_func();
-        w.pub_fn(&format!("{}(&mut self)", clear_field_func), |w| {
-            self.write_clear(w);
-        });
+        if !self.disable_reflect {
+            w.pub_fn(&format!("{}(&mut self)", clear_field_func), |w| {
+                self.write_clear(w);
+            });
+        }
 
         if self.has_has() {
             w.write_line("");

@@ -266,18 +266,18 @@ impl ::protobuf::Message for CodeGeneratorRequest {
     }
 }
 
+impl ::std::fmt::Debug for CodeGeneratorRequest {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for CodeGeneratorRequest {
     fn clear(&mut self) {
         self.clear_file_to_generate();
         self.clear_parameter();
         self.clear_proto_file();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for CodeGeneratorRequest {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -492,17 +492,17 @@ impl ::protobuf::Message for CodeGeneratorResponse {
     }
 }
 
+impl ::std::fmt::Debug for CodeGeneratorResponse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for CodeGeneratorResponse {
     fn clear(&mut self) {
         self.clear_error();
         self.clear_file();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for CodeGeneratorResponse {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -771,18 +771,18 @@ impl ::protobuf::Message for CodeGeneratorResponse_File {
     }
 }
 
+impl ::std::fmt::Debug for CodeGeneratorResponse_File {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for CodeGeneratorResponse_File {
     fn clear(&mut self) {
         self.clear_name();
         self.clear_insertion_point();
         self.clear_content();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for CodeGeneratorResponse_File {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 

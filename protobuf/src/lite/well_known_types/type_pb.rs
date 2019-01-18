@@ -21,7 +21,7 @@
 use protobuf::Message as Message_imported_for_functions;
 use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct Type {
     // message fields
@@ -45,9 +45,6 @@ impl Type {
 
     // string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_name(&mut self, v: ::std::string::String) {
@@ -71,9 +68,6 @@ impl Type {
 
     // repeated .google.protobuf.Field fields = 2;
 
-    pub fn clear_fields(&mut self) {
-        self.fields.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_fields(&mut self, v: ::protobuf::RepeatedField<Field>) {
@@ -96,9 +90,6 @@ impl Type {
 
     // repeated string oneofs = 3;
 
-    pub fn clear_oneofs(&mut self) {
-        self.oneofs.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_oneofs(&mut self, v: ::protobuf::RepeatedField<::std::string::String>) {
@@ -121,9 +112,6 @@ impl Type {
 
     // repeated .google.protobuf.Option options = 4;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_options(&mut self, v: ::protobuf::RepeatedField<Option>) {
@@ -146,9 +134,6 @@ impl Type {
 
     // .google.protobuf.SourceContext source_context = 5;
 
-    pub fn clear_source_context(&mut self) {
-        self.source_context.clear();
-    }
 
     pub fn has_source_context(&self) -> bool {
         self.source_context.is_some()
@@ -179,9 +164,6 @@ impl Type {
 
     // .google.protobuf.Syntax syntax = 6;
 
-    pub fn clear_syntax(&mut self) {
-        self.syntax = Syntax::SYNTAX_PROTO2;
-    }
 
     // Param is passed by value, moved
     pub fn set_syntax(&mut self, v: Syntax) {
@@ -320,19 +302,7 @@ impl ::protobuf::Message for Type {
     }
 }
 
-impl ::protobuf::Clear for Type {
-    fn clear(&mut self) {
-        self.clear_name();
-        self.clear_fields();
-        self.clear_oneofs();
-        self.clear_options();
-        self.clear_source_context();
-        self.clear_syntax();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct Field {
     // message fields
@@ -360,9 +330,6 @@ impl Field {
 
     // .google.protobuf.Field.Kind kind = 1;
 
-    pub fn clear_kind(&mut self) {
-        self.kind = Field_Kind::TYPE_UNKNOWN;
-    }
 
     // Param is passed by value, moved
     pub fn set_kind(&mut self, v: Field_Kind) {
@@ -375,9 +342,6 @@ impl Field {
 
     // .google.protobuf.Field.Cardinality cardinality = 2;
 
-    pub fn clear_cardinality(&mut self) {
-        self.cardinality = Field_Cardinality::CARDINALITY_UNKNOWN;
-    }
 
     // Param is passed by value, moved
     pub fn set_cardinality(&mut self, v: Field_Cardinality) {
@@ -390,9 +354,6 @@ impl Field {
 
     // int32 number = 3;
 
-    pub fn clear_number(&mut self) {
-        self.number = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_number(&mut self, v: i32) {
@@ -405,9 +366,6 @@ impl Field {
 
     // string name = 4;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_name(&mut self, v: ::std::string::String) {
@@ -431,9 +389,6 @@ impl Field {
 
     // string type_url = 6;
 
-    pub fn clear_type_url(&mut self) {
-        self.type_url.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_type_url(&mut self, v: ::std::string::String) {
@@ -457,9 +412,6 @@ impl Field {
 
     // int32 oneof_index = 7;
 
-    pub fn clear_oneof_index(&mut self) {
-        self.oneof_index = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_oneof_index(&mut self, v: i32) {
@@ -472,9 +424,6 @@ impl Field {
 
     // bool packed = 8;
 
-    pub fn clear_packed(&mut self) {
-        self.packed = false;
-    }
 
     // Param is passed by value, moved
     pub fn set_packed(&mut self, v: bool) {
@@ -487,9 +436,6 @@ impl Field {
 
     // repeated .google.protobuf.Option options = 9;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_options(&mut self, v: ::protobuf::RepeatedField<Option>) {
@@ -512,9 +458,6 @@ impl Field {
 
     // string json_name = 10;
 
-    pub fn clear_json_name(&mut self) {
-        self.json_name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_json_name(&mut self, v: ::std::string::String) {
@@ -538,9 +481,6 @@ impl Field {
 
     // string default_value = 11;
 
-    pub fn clear_default_value(&mut self) {
-        self.default_value.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_default_value(&mut self, v: ::std::string::String) {
@@ -722,23 +662,7 @@ impl ::protobuf::Message for Field {
     }
 }
 
-impl ::protobuf::Clear for Field {
-    fn clear(&mut self) {
-        self.clear_kind();
-        self.clear_cardinality();
-        self.clear_number();
-        self.clear_name();
-        self.clear_type_url();
-        self.clear_oneof_index();
-        self.clear_packed();
-        self.clear_options();
-        self.clear_json_name();
-        self.clear_default_value();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(Clone,PartialEq,Eq,Debug,Hash)]
+#[derive(Clone,PartialEq,Eq,Hash)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub enum Field_Kind {
     TYPE_UNKNOWN = 0,
@@ -828,7 +752,7 @@ impl ::std::default::Default for Field_Kind {
 }
 
 
-#[derive(Clone,PartialEq,Eq,Debug,Hash)]
+#[derive(Clone,PartialEq,Eq,Hash)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub enum Field_Cardinality {
     CARDINALITY_UNKNOWN = 0,
@@ -873,7 +797,7 @@ impl ::std::default::Default for Field_Cardinality {
 }
 
 
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct Enum {
     // message fields
@@ -896,9 +820,6 @@ impl Enum {
 
     // string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_name(&mut self, v: ::std::string::String) {
@@ -922,9 +843,6 @@ impl Enum {
 
     // repeated .google.protobuf.EnumValue enumvalue = 2;
 
-    pub fn clear_enumvalue(&mut self) {
-        self.enumvalue.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_enumvalue(&mut self, v: ::protobuf::RepeatedField<EnumValue>) {
@@ -947,9 +865,6 @@ impl Enum {
 
     // repeated .google.protobuf.Option options = 3;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_options(&mut self, v: ::protobuf::RepeatedField<Option>) {
@@ -972,9 +887,6 @@ impl Enum {
 
     // .google.protobuf.SourceContext source_context = 4;
 
-    pub fn clear_source_context(&mut self) {
-        self.source_context.clear();
-    }
 
     pub fn has_source_context(&self) -> bool {
         self.source_context.is_some()
@@ -1005,9 +917,6 @@ impl Enum {
 
     // .google.protobuf.Syntax syntax = 5;
 
-    pub fn clear_syntax(&mut self) {
-        self.syntax = Syntax::SYNTAX_PROTO2;
-    }
 
     // Param is passed by value, moved
     pub fn set_syntax(&mut self, v: Syntax) {
@@ -1137,18 +1046,7 @@ impl ::protobuf::Message for Enum {
     }
 }
 
-impl ::protobuf::Clear for Enum {
-    fn clear(&mut self) {
-        self.clear_name();
-        self.clear_enumvalue();
-        self.clear_options();
-        self.clear_source_context();
-        self.clear_syntax();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct EnumValue {
     // message fields
@@ -1169,9 +1067,6 @@ impl EnumValue {
 
     // string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_name(&mut self, v: ::std::string::String) {
@@ -1195,9 +1090,6 @@ impl EnumValue {
 
     // int32 number = 2;
 
-    pub fn clear_number(&mut self) {
-        self.number = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_number(&mut self, v: i32) {
@@ -1210,9 +1102,6 @@ impl EnumValue {
 
     // repeated .google.protobuf.Option options = 3;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_options(&mut self, v: ::protobuf::RepeatedField<Option>) {
@@ -1322,16 +1211,7 @@ impl ::protobuf::Message for EnumValue {
     }
 }
 
-impl ::protobuf::Clear for EnumValue {
-    fn clear(&mut self) {
-        self.clear_name();
-        self.clear_number();
-        self.clear_options();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct Option {
     // message fields
@@ -1351,9 +1231,6 @@ impl Option {
 
     // string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_name(&mut self, v: ::std::string::String) {
@@ -1377,9 +1254,6 @@ impl Option {
 
     // .google.protobuf.Any value = 2;
 
-    pub fn clear_value(&mut self) {
-        self.value.clear();
-    }
 
     pub fn has_value(&self) -> bool {
         self.value.is_some()
@@ -1484,15 +1358,7 @@ impl ::protobuf::Message for Option {
     }
 }
 
-impl ::protobuf::Clear for Option {
-    fn clear(&mut self) {
-        self.clear_name();
-        self.clear_value();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(Clone,PartialEq,Eq,Debug,Hash)]
+#[derive(Clone,PartialEq,Eq,Hash)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub enum Syntax {
     SYNTAX_PROTO2 = 0,

@@ -21,7 +21,7 @@
 use protobuf::Message as Message_imported_for_functions;
 use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct Timestamp {
     // message fields
@@ -41,9 +41,6 @@ impl Timestamp {
 
     // int64 seconds = 1;
 
-    pub fn clear_seconds(&mut self) {
-        self.seconds = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_seconds(&mut self, v: i64) {
@@ -56,9 +53,6 @@ impl Timestamp {
 
     // int32 nanos = 2;
 
-    pub fn clear_nanos(&mut self) {
-        self.nanos = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_nanos(&mut self, v: i32) {
@@ -142,13 +136,5 @@ impl ::protobuf::Message for Timestamp {
 
     fn new() -> Timestamp {
         Timestamp::new()
-    }
-}
-
-impl ::protobuf::Clear for Timestamp {
-    fn clear(&mut self) {
-        self.clear_seconds();
-        self.clear_nanos();
-        self.unknown_fields.clear();
     }
 }

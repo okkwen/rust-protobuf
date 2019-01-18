@@ -21,7 +21,7 @@
 use protobuf::Message as Message_imported_for_functions;
 use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct DoubleValue {
     // message fields
@@ -40,9 +40,6 @@ impl DoubleValue {
 
     // double value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value = 0.;
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: f64) {
@@ -116,14 +113,7 @@ impl ::protobuf::Message for DoubleValue {
     }
 }
 
-impl ::protobuf::Clear for DoubleValue {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct FloatValue {
     // message fields
@@ -142,9 +132,6 @@ impl FloatValue {
 
     // float value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value = 0.;
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: f32) {
@@ -218,14 +205,7 @@ impl ::protobuf::Message for FloatValue {
     }
 }
 
-impl ::protobuf::Clear for FloatValue {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct Int64Value {
     // message fields
@@ -244,9 +224,6 @@ impl Int64Value {
 
     // int64 value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: i64) {
@@ -320,14 +297,7 @@ impl ::protobuf::Message for Int64Value {
     }
 }
 
-impl ::protobuf::Clear for Int64Value {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct UInt64Value {
     // message fields
@@ -346,9 +316,6 @@ impl UInt64Value {
 
     // uint64 value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: u64) {
@@ -422,14 +389,7 @@ impl ::protobuf::Message for UInt64Value {
     }
 }
 
-impl ::protobuf::Clear for UInt64Value {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct Int32Value {
     // message fields
@@ -448,9 +408,6 @@ impl Int32Value {
 
     // int32 value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: i32) {
@@ -524,14 +481,7 @@ impl ::protobuf::Message for Int32Value {
     }
 }
 
-impl ::protobuf::Clear for Int32Value {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct UInt32Value {
     // message fields
@@ -550,9 +500,6 @@ impl UInt32Value {
 
     // uint32 value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: u32) {
@@ -626,14 +573,7 @@ impl ::protobuf::Message for UInt32Value {
     }
 }
 
-impl ::protobuf::Clear for UInt32Value {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct BoolValue {
     // message fields
@@ -652,9 +592,6 @@ impl BoolValue {
 
     // bool value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value = false;
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: bool) {
@@ -728,14 +665,7 @@ impl ::protobuf::Message for BoolValue {
     }
 }
 
-impl ::protobuf::Clear for BoolValue {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct StringValue {
     // message fields
@@ -754,9 +684,6 @@ impl StringValue {
 
     // string value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: ::std::string::String) {
@@ -837,14 +764,7 @@ impl ::protobuf::Message for StringValue {
     }
 }
 
-impl ::protobuf::Clear for StringValue {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
-    }
-}
-
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default)]
 #[cfg_attr(feature = "with-serde", derive(Serialize, Deserialize))]
 pub struct BytesValue {
     // message fields
@@ -863,9 +783,6 @@ impl BytesValue {
 
     // bytes value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: ::std::vec::Vec<u8>) {
@@ -943,12 +860,5 @@ impl ::protobuf::Message for BytesValue {
 
     fn new() -> BytesValue {
         BytesValue::new()
-    }
-}
-
-impl ::protobuf::Clear for BytesValue {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
     }
 }

@@ -390,6 +390,12 @@ impl ::protobuf::Message for Type {
     }
 }
 
+impl ::std::fmt::Debug for Type {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for Type {
     fn clear(&mut self) {
         self.clear_name();
@@ -399,12 +405,6 @@ impl ::protobuf::Clear for Type {
         self.clear_source_context();
         self.clear_syntax();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for Type {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -894,6 +894,12 @@ impl ::protobuf::Message for Field {
     }
 }
 
+impl ::std::fmt::Debug for Field {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for Field {
     fn clear(&mut self) {
         self.clear_kind();
@@ -907,12 +913,6 @@ impl ::protobuf::Clear for Field {
         self.clear_json_name();
         self.clear_default_value();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for Field {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -1420,6 +1420,12 @@ impl ::protobuf::Message for Enum {
     }
 }
 
+impl ::std::fmt::Debug for Enum {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for Enum {
     fn clear(&mut self) {
         self.clear_name();
@@ -1428,12 +1434,6 @@ impl ::protobuf::Clear for Enum {
         self.clear_source_context();
         self.clear_syntax();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for Enum {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -1672,18 +1672,18 @@ impl ::protobuf::Message for EnumValue {
     }
 }
 
+impl ::std::fmt::Debug for EnumValue {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for EnumValue {
     fn clear(&mut self) {
         self.clear_name();
         self.clear_number();
         self.clear_options();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for EnumValue {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -1896,17 +1896,17 @@ impl ::protobuf::Message for Option {
     }
 }
 
+impl ::std::fmt::Debug for Option {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for Option {
     fn clear(&mut self) {
         self.clear_name();
         self.clear_value();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for Option {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 

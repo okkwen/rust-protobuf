@@ -175,16 +175,16 @@ impl ::protobuf::Message for FileDescriptorSet {
     }
 }
 
+impl ::std::fmt::Debug for FileDescriptorSet {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for FileDescriptorSet {
     fn clear(&mut self) {
         self.clear_file();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for FileDescriptorSet {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -877,6 +877,12 @@ impl ::protobuf::Message for FileDescriptorProto {
     }
 }
 
+impl ::std::fmt::Debug for FileDescriptorProto {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for FileDescriptorProto {
     fn clear(&mut self) {
         self.clear_name();
@@ -892,12 +898,6 @@ impl ::protobuf::Clear for FileDescriptorProto {
         self.clear_source_code_info();
         self.clear_syntax();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for FileDescriptorProto {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -1496,6 +1496,12 @@ impl ::protobuf::Message for DescriptorProto {
     }
 }
 
+impl ::std::fmt::Debug for DescriptorProto {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for DescriptorProto {
     fn clear(&mut self) {
         self.clear_name();
@@ -1509,12 +1515,6 @@ impl ::protobuf::Clear for DescriptorProto {
         self.clear_reserved_range();
         self.clear_reserved_name();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for DescriptorProto {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -1706,17 +1706,17 @@ impl ::protobuf::Message for DescriptorProto_ExtensionRange {
     }
 }
 
+impl ::std::fmt::Debug for DescriptorProto_ExtensionRange {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for DescriptorProto_ExtensionRange {
     fn clear(&mut self) {
         self.clear_start();
         self.clear_end();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for DescriptorProto_ExtensionRange {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -1908,17 +1908,17 @@ impl ::protobuf::Message for DescriptorProto_ReservedRange {
     }
 }
 
+impl ::std::fmt::Debug for DescriptorProto_ReservedRange {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for DescriptorProto_ReservedRange {
     fn clear(&mut self) {
         self.clear_start();
         self.clear_end();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for DescriptorProto_ReservedRange {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -2489,6 +2489,12 @@ impl ::protobuf::Message for FieldDescriptorProto {
     }
 }
 
+impl ::std::fmt::Debug for FieldDescriptorProto {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for FieldDescriptorProto {
     fn clear(&mut self) {
         self.clear_name();
@@ -2502,12 +2508,6 @@ impl ::protobuf::Clear for FieldDescriptorProto {
         self.clear_json_name();
         self.clear_options();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for FieldDescriptorProto {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -2881,17 +2881,17 @@ impl ::protobuf::Message for OneofDescriptorProto {
     }
 }
 
+impl ::std::fmt::Debug for OneofDescriptorProto {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for OneofDescriptorProto {
     fn clear(&mut self) {
         self.clear_name();
         self.clear_options();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for OneofDescriptorProto {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -3162,18 +3162,18 @@ impl ::protobuf::Message for EnumDescriptorProto {
     }
 }
 
+impl ::std::fmt::Debug for EnumDescriptorProto {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for EnumDescriptorProto {
     fn clear(&mut self) {
         self.clear_name();
         self.clear_value();
         self.clear_options();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for EnumDescriptorProto {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -3434,18 +3434,18 @@ impl ::protobuf::Message for EnumValueDescriptorProto {
     }
 }
 
+impl ::std::fmt::Debug for EnumValueDescriptorProto {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for EnumValueDescriptorProto {
     fn clear(&mut self) {
         self.clear_name();
         self.clear_number();
         self.clear_options();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for EnumValueDescriptorProto {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -3716,18 +3716,18 @@ impl ::protobuf::Message for ServiceDescriptorProto {
     }
 }
 
+impl ::std::fmt::Debug for ServiceDescriptorProto {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for ServiceDescriptorProto {
     fn clear(&mut self) {
         self.clear_name();
         self.clear_method();
         self.clear_options();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for ServiceDescriptorProto {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -4128,6 +4128,12 @@ impl ::protobuf::Message for MethodDescriptorProto {
     }
 }
 
+impl ::std::fmt::Debug for MethodDescriptorProto {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for MethodDescriptorProto {
     fn clear(&mut self) {
         self.clear_name();
@@ -4137,12 +4143,6 @@ impl ::protobuf::Clear for MethodDescriptorProto {
         self.clear_client_streaming();
         self.clear_server_streaming();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for MethodDescriptorProto {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -4899,6 +4899,12 @@ impl ::protobuf::Message for FileOptions {
     }
 }
 
+impl ::std::fmt::Debug for FileOptions {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for FileOptions {
     fn clear(&mut self) {
         self.clear_java_package();
@@ -4917,12 +4923,6 @@ impl ::protobuf::Clear for FileOptions {
         self.clear_csharp_namespace();
         self.clear_uninterpreted_option();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for FileOptions {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -5291,6 +5291,12 @@ impl ::protobuf::Message for MessageOptions {
     }
 }
 
+impl ::std::fmt::Debug for MessageOptions {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for MessageOptions {
     fn clear(&mut self) {
         self.clear_message_set_wire_format();
@@ -5299,12 +5305,6 @@ impl ::protobuf::Clear for MessageOptions {
         self.clear_map_entry();
         self.clear_uninterpreted_option();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for MessageOptions {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -5688,6 +5688,12 @@ impl ::protobuf::Message for FieldOptions {
     }
 }
 
+impl ::std::fmt::Debug for FieldOptions {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for FieldOptions {
     fn clear(&mut self) {
         self.clear_ctype();
@@ -5698,12 +5704,6 @@ impl ::protobuf::Clear for FieldOptions {
         self.clear_weak();
         self.clear_uninterpreted_option();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for FieldOptions {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -5973,16 +5973,16 @@ impl ::protobuf::Message for OneofOptions {
     }
 }
 
+impl ::std::fmt::Debug for OneofOptions {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for OneofOptions {
     fn clear(&mut self) {
         self.clear_uninterpreted_option();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for OneofOptions {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -6222,18 +6222,18 @@ impl ::protobuf::Message for EnumOptions {
     }
 }
 
+impl ::std::fmt::Debug for EnumOptions {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for EnumOptions {
     fn clear(&mut self) {
         self.clear_allow_alias();
         self.clear_deprecated();
         self.clear_uninterpreted_option();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for EnumOptions {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -6435,17 +6435,17 @@ impl ::protobuf::Message for EnumValueOptions {
     }
 }
 
+impl ::std::fmt::Debug for EnumValueOptions {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for EnumValueOptions {
     fn clear(&mut self) {
         self.clear_deprecated();
         self.clear_uninterpreted_option();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for EnumValueOptions {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -6647,17 +6647,17 @@ impl ::protobuf::Message for ServiceOptions {
     }
 }
 
+impl ::std::fmt::Debug for ServiceOptions {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for ServiceOptions {
     fn clear(&mut self) {
         self.clear_deprecated();
         self.clear_uninterpreted_option();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for ServiceOptions {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -6859,17 +6859,17 @@ impl ::protobuf::Message for MethodOptions {
     }
 }
 
+impl ::std::fmt::Debug for MethodOptions {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for MethodOptions {
     fn clear(&mut self) {
         self.clear_deprecated();
         self.clear_uninterpreted_option();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for MethodOptions {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -7300,6 +7300,12 @@ impl ::protobuf::Message for UninterpretedOption {
     }
 }
 
+impl ::std::fmt::Debug for UninterpretedOption {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for UninterpretedOption {
     fn clear(&mut self) {
         self.clear_name();
@@ -7310,12 +7316,6 @@ impl ::protobuf::Clear for UninterpretedOption {
         self.clear_string_value();
         self.clear_aggregate_value();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for UninterpretedOption {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -7526,17 +7526,17 @@ impl ::protobuf::Message for UninterpretedOption_NamePart {
     }
 }
 
+impl ::std::fmt::Debug for UninterpretedOption_NamePart {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for UninterpretedOption_NamePart {
     fn clear(&mut self) {
         self.clear_name_part();
         self.clear_is_extension();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for UninterpretedOption_NamePart {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -7700,16 +7700,16 @@ impl ::protobuf::Message for SourceCodeInfo {
     }
 }
 
+impl ::std::fmt::Debug for SourceCodeInfo {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for SourceCodeInfo {
     fn clear(&mut self) {
         self.clear_location();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for SourceCodeInfo {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -8057,6 +8057,12 @@ impl ::protobuf::Message for SourceCodeInfo_Location {
     }
 }
 
+impl ::std::fmt::Debug for SourceCodeInfo_Location {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for SourceCodeInfo_Location {
     fn clear(&mut self) {
         self.clear_path();
@@ -8065,12 +8071,6 @@ impl ::protobuf::Clear for SourceCodeInfo_Location {
         self.clear_trailing_comments();
         self.clear_leading_detached_comments();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for SourceCodeInfo_Location {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -8234,16 +8234,16 @@ impl ::protobuf::Message for GeneratedCodeInfo {
     }
 }
 
+impl ::std::fmt::Debug for GeneratedCodeInfo {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for GeneratedCodeInfo {
     fn clear(&mut self) {
         self.clear_annotation();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for GeneratedCodeInfo {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 
@@ -8531,6 +8531,12 @@ impl ::protobuf::Message for GeneratedCodeInfo_Annotation {
     }
 }
 
+impl ::std::fmt::Debug for GeneratedCodeInfo_Annotation {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
 impl ::protobuf::Clear for GeneratedCodeInfo_Annotation {
     fn clear(&mut self) {
         self.clear_path();
@@ -8538,12 +8544,6 @@ impl ::protobuf::Clear for GeneratedCodeInfo_Annotation {
         self.clear_begin();
         self.clear_end();
         self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for GeneratedCodeInfo_Annotation {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
     }
 }
 

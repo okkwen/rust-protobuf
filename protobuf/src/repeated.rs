@@ -256,6 +256,7 @@ impl<T> RepeatedField<T> {
     }
 }
 
+#[cfg(not(feature = "lite"))]
 impl<T : Default + Clear> RepeatedField<T> {
     /// Push default value.
     /// This operation could be faster than `rf.push(Default::default())`,
@@ -265,6 +266,22 @@ impl<T : Default + Clear> RepeatedField<T> {
             self.vec.push(Default::default());
         } else {
             self.vec[self.len].clear();
+        }
+        self.len += 1;
+        self.last_mut().unwrap()
+    }
+}
+
+#[cfg(feature = "lite")]
+impl<T : Default> RepeatedField<T> {
+    /// Push default value.
+    /// This operation could be faster than `rf.push(Default::default())`,
+    /// because it may reuse previously allocated and cleared element.
+    pub fn push_default<'a>(&'a mut self) -> &'a mut T {
+        if self.len == self.vec.len() {
+            self.vec.push(Default::default());
+        } else {
+            self.vec[self.len] = T::default();
         }
         self.len += 1;
         self.last_mut().unwrap()
