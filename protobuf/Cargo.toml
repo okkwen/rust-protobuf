@@ -16,6 +16,7 @@ doctest = false
 bench = false
 
 [features]
+lite = []
 with-bytes = ["bytes"]
 with-serde = ["serde", "serde_derive"]
 

@@ -322,29 +322,33 @@ impl<'a> MessageGen<'a> {
             w.write_line("");
             self.write_unknown_fields(w);
             w.write_line("");
-            w.def_fn("as_any(&self) -> &::std::any::Any", |w| {
-                w.write_line("self as &::std::any::Any");
-            });
-            w.def_fn("as_any_mut(&mut self) -> &mut ::std::any::Any", |w| {
-                w.write_line("self as &mut ::std::any::Any");
-            });
-            w.def_fn("into_any(self: Box<Self>) -> ::std::boxed::Box<::std::any::Any>", |w| {
-                w.write_line("self");
-            });
-            w.write_line("");
-            w.def_fn("descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor", |w| {
-                w.write_line("Self::descriptor_static()");
-            });
+            if !self.customize.disable_reflect.unwrap_or(false) {
+                w.def_fn("as_any(&self) -> &::std::any::Any", |w| {
+                    w.write_line("self as &::std::any::Any");
+                });
+                w.def_fn("as_any_mut(&mut self) -> &mut ::std::any::Any", |w| {
+                    w.write_line("self as &mut ::std::any::Any");
+                });
+                w.def_fn("into_any(self: Box<Self>) -> ::std::boxed::Box<::std::any::Any>", |w| {
+                    w.write_line("self");
+                });
+                w.write_line("");
+                w.def_fn("descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor", |w| {
+                    w.write_line("Self::descriptor_static()");
+                });
+            }
             w.write_line("");
             w.def_fn(&format!("new() -> {}", self.type_name), |w| {
                 w.write_line(&format!("{}::new()", self.type_name));
             });
-            if !self.lite_runtime {
+            if !self.lite_runtime && !self.customize.disable_reflect.unwrap_or(false) {
                 w.write_line("");
                 self.write_descriptor_static(w);
             }
-            w.write_line("");
-            self.write_default_instance(w);
+            if !self.customize.disable_reflect.unwrap_or(false) {
+                w.write_line("");
+                self.write_default_instance(w);
+            }
         });
     }
 
@@ -386,7 +390,7 @@ impl<'a> MessageGen<'a> {
 
     fn write_struct(&self, w: &mut CodeWriter) {
         let mut derive = vec!["PartialEq", "Clone", "Default"];
-        if self.lite_runtime {
+        if self.lite_runtime && !self.customize.disable_reflect.unwrap_or(false) {
             derive.push("Debug");
         }
         w.derive(&derive);
@@ -453,12 +457,14 @@ impl<'a> MessageGen<'a> {
         self.write_impl_message(w);
         w.write_line("");
         self.write_impl_clear(w);
-        if !self.lite_runtime {
+        if !self.lite_runtime && !self.customize.disable_reflect.unwrap_or(false) {
             w.write_line("");
             self.write_impl_show(w);
         }
-        w.write_line("");
-        self.write_impl_value(w);
+        if !self.customize.disable_reflect.unwrap_or(false) {
+            w.write_line("");
+            self.write_impl_value(w);
+        }
 
         let mut nested_prefix = self.type_name.to_string();
         nested_prefix.push_str("_");

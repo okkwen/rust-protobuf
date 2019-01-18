@@ -22,6 +22,8 @@ pub struct Customize {
     /// When `serde_derive` is set, serde annotations will be guarded with `#[cfg(cfg, ...)]`.
     pub serde_derive_cfg: Option<String>,
 
+    pub disable_reflect: Option<bool>,
+
     // When adding more options please keep in sync with `parse_from_parameter` below.
 
     /// Make sure `Customize` is always used with `..Default::default()`
@@ -62,6 +64,9 @@ impl Customize {
         if let Some(ref v) = that.serde_derive_cfg {
             self.serde_derive_cfg = Some(v.clone());
         }
+        if let Some(v) = that.disable_reflect {
+            self.disable_reflect = Some(v);
+        }
     }
 
     /// Update unset fields of self with fields from other customize
@@ -101,6 +106,8 @@ impl Customize {
                 r.serde_derive = Some(parse_bool(v)?);
             } else if n == "serde_derive_cfg" {
                 r.serde_derive_cfg = Some(v.to_owned());
+            } else if n == "disable_reflect" {
+                r.disable_reflect = Some(parse_bool(v)?);
             } else {
                 return Err(CustomizeParseParameterError::UnknownOptionName(n.to_owned()));
             }
@@ -118,6 +125,8 @@ pub fn customize_from_rustproto_for_message(source: &MessageOptions) -> Customiz
     let carllerche_bytes_for_string = rustproto::exts::carllerche_bytes_for_string.get(source);
     let serde_derive = rustproto::exts::serde_derive.get(source);
     let serde_derive_cfg = rustproto::exts::serde_derive_cfg.get(source);
+    let disable_reflect = rustproto::exts::disable_reflect.get(source);
+
     Customize {
         expose_oneof,
         expose_fields,
@@ -126,6 +135,7 @@ pub fn customize_from_rustproto_for_message(source: &MessageOptions) -> Customiz
         carllerche_bytes_for_string,
         serde_derive,
         serde_derive_cfg,
+        disable_reflect,
         _future_options: (),
     }
 }
@@ -138,6 +148,7 @@ pub fn customize_from_rustproto_for_field(source: &FieldOptions) -> Customize {
     let carllerche_bytes_for_string = rustproto::exts::carllerche_bytes_for_string_field.get(source);
     let serde_derive = None;
     let serde_derive_cfg = None;
+    let disable_reflect = None;
     Customize {
         expose_oneof,
         expose_fields,
@@ -146,6 +157,7 @@ pub fn customize_from_rustproto_for_field(source: &FieldOptions) -> Customize {
         carllerche_bytes_for_string,
         serde_derive,
         serde_derive_cfg,
+        disable_reflect,
         _future_options: (),
     }
 }
@@ -158,6 +170,7 @@ pub fn customize_from_rustproto_for_file(source: &FileOptions) -> Customize {
     let carllerche_bytes_for_string = rustproto::exts::carllerche_bytes_for_string_all.get(source);
     let serde_derive = rustproto::exts::serde_derive_all.get(source);
     let serde_derive_cfg = rustproto::exts::serde_derive_cfg_all.get(source);
+    let disable_reflect = rustproto::exts::disable_reflect_all.get(source);;
     Customize {
         expose_oneof,
         expose_fields,
@@ -166,6 +179,7 @@ pub fn customize_from_rustproto_for_file(source: &FileOptions) -> Customize {
         carllerche_bytes_for_string,
         serde_derive,
         serde_derive_cfg,
+        disable_reflect,
         _future_options: (),
     }
 }

@@ -131,7 +131,9 @@ impl<'a> EnumGen<'a> {
             self.write_impl_default(w);
         }
         w.write_line("");
-        self.write_impl_value(w);
+        if !self.customize.disable_reflect.unwrap_or(false) {
+            self.write_impl_value(w);
+        }
     }
 
     fn write_struct(&self, w: &mut CodeWriter) {
@@ -141,7 +143,9 @@ impl<'a> EnumGen<'a> {
             derive.push("PartialEq");
         }
         derive.push("Eq");
-        derive.push("Debug");
+        if self.customize.disable_reflect.unwrap_or(false) {
+            derive.push("Debug");
+        }
         if !self.allow_alias() {
             derive.push("Hash");
         } else {
@@ -211,7 +215,7 @@ impl<'a> EnumGen<'a> {
                 w.write_line("values");
             });
 
-            if !self.lite_runtime {
+            if !self.lite_runtime && !self.customize.disable_reflect.unwrap_or(false) {
                 w.write_line("");
                 w.def_fn(&format!("enum_descriptor_static() -> &'static ::protobuf::reflect::EnumDescriptor"), |w| {
                     w.lazy_static_decl_get("descriptor", "::protobuf::reflect::EnumDescriptor", |w| {

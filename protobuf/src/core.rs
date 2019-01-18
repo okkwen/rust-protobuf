@@ -23,6 +23,7 @@ use error::ProtobufResult;
 /// Also, generated messages implement `Clone + Default + PartialEq`
 pub trait Message: fmt::Debug + Clear + Any + Send + Sync {
     /// Message descriptor for this message, used for reflection.
+    #[cfg(not(feature = "lite"))]
     fn descriptor(&self) -> &'static MessageDescriptor;
 
     /// True iff all required fields are initialized.
@@ -90,7 +91,13 @@ pub trait Message: fmt::Debug + Clear + Any + Send + Sync {
     /// Check if all required fields of this object are initialized.
     fn check_initialized(&self) -> ProtobufResult<()> {
         if !self.is_initialized() {
-            Err(ProtobufError::message_not_initialized(self.descriptor().name()))
+            #[cfg(not(feature = "lite"))] {
+                Err(ProtobufError::message_not_initialized(self.descriptor().name()))
+            }
+
+            #[cfg(feature = "lite")] {
+                Err(ProtobufError::message_not_initialized("message not initialized"))
+            }
         } else {
             Ok(())
         }
@@ -142,19 +149,23 @@ pub trait Message: fmt::Debug + Clear + Any + Send + Sync {
     fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut UnknownFields;
 
     /// Get type id for downcasting.
+    #[cfg(not(feature = "lite"))]
     fn type_id(&self) -> TypeId {
         TypeId::of::<Self>()
     }
 
     /// View self as `Any`.
+    #[cfg(not(feature = "lite"))]
     fn as_any(&self) -> &Any;
 
     /// View self as mutable `Any`.
+    #[cfg(not(feature = "lite"))]
     fn as_any_mut(&mut self) -> &mut Any {
         panic!()
     }
 
     /// Convert boxed self to boxed `Any`.
+    #[cfg(not(feature = "lite"))]
     fn into_any(self: Box<Self>) -> Box<Any> {
         panic!()
     }
@@ -168,6 +179,7 @@ pub trait Message: fmt::Debug + Clear + Any + Send + Sync {
     fn new() -> Self where Self : Sized;
 
     /// Get message descriptor for message type.
+    #[cfg(not(feature = "lite"))]
     fn descriptor_static() -> &'static MessageDescriptor
         where Self : Sized
     {
@@ -178,10 +190,12 @@ pub trait Message: fmt::Debug + Clear + Any + Send + Sync {
     }
 
     /// Return a pointer to default immutable message.
+    #[cfg(not(feature = "lite"))]
     fn default_instance() -> &'static Self
         where Self : Sized;
 }
 
+#[cfg(not(feature = "lite"))]
 pub fn message_down_cast<'a, M : Message + 'a>(m: &'a Message) -> &'a M {
     m.as_any().downcast_ref::<M>().unwrap()
 }

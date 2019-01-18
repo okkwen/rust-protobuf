@@ -22,6 +22,8 @@ extend google.protobuf.FileOptions {
     optional bool serde_derive_all = 17030;
     // Guard serde annotations with cfg attr.
     optional string serde_derive_cfg_all = 17031;
+	// When true, disable reflect
+	optional bool disable_reflect_all = 17032;
 }
 
 extend google.protobuf.MessageOptions {
@@ -39,6 +41,8 @@ extend google.protobuf.MessageOptions {
     optional bool serde_derive = 17030;
     // Guard serde annotations with cfg attr.
     optional string serde_derive_cfg = 17031;
+	// When true, disable reflect
+	optional bool disable_reflect = 17032;
 }
 
 extend google.protobuf.FieldOptions {
