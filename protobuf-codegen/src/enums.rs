@@ -193,7 +193,7 @@ impl<'a> EnumGen<'a> {
                         w.write_line(&format!("{} => ::std::option::Option::Some({}),",
                             value.number(), value.rust_name_outer()));
                     }
-                    w.write_line(&format!("_ => ::std::option::Option::None"));
+                    w.write_line(&format!("_ => ::std::option::Option::Some(Default::default())"));
                 });
             });
 
