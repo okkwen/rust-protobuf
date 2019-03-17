@@ -88,9 +88,7 @@ pub trait Message: fmt::Debug + Clear + Any + Send + Sync {
     /// Check if all required fields of this object are initialized.
     fn check_initialized(&self) -> ProtobufResult<()> {
         if !self.is_initialized() {
-            Err(ProtobufError::message_not_initialized(
-                self.descriptor().name(),
-            ))
+            Err(ProtobufError::message_not_initialized("message not initialized"))
         } else {
             Ok(())
         }
