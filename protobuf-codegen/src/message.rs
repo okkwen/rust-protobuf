@@ -385,10 +385,7 @@ impl<'a> MessageGen<'a> {
     }
 
     fn write_struct(&self, w: &mut CodeWriter) {
-        let mut derive = vec!["PartialEq", "Clone", "Default"];
-        if self.lite_runtime {
-            derive.push("Debug");
-        }
+        let derive = vec!["PartialEq", "Clone", "Default"];
         w.derive(&derive);
         serde::write_serde_attr(w, &self.customize, "derive(Serialize, Deserialize)");
         w.pub_struct(&self.type_name, |w| {
@@ -437,6 +434,14 @@ impl<'a> MessageGen<'a> {
             serde::write_serde_attr(w, &self.customize, "serde(skip)");
             w.pub_field_decl("cached_size", "::protobuf::CachedSize");
         });
+
+        if self.lite_runtime {
+            w.impl_for_block("::std::fmt::Debug", &self.type_name, |w| {
+                w.fn_block(false, "fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result", |w| {
+                    w.write_line(&format!(r#"f.debug_struct("{}").finish()"#, self.type_name));
+                });
+            });
+        }
     }
 
     pub fn write(&self, w: &mut CodeWriter) {
