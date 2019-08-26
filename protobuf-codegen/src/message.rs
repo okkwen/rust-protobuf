@@ -266,7 +266,9 @@ impl<'a> MessageGen<'a> {
                     w.write_line(&format!("let mut fields = ::std::vec::Vec::new();"));
                 }
                 for field in fields {
-                    self.write_descriptor_field("fields", field, w);;
+                    if field.proto_type != FieldDescriptorProto_Type::TYPE_BYTES {
+                        self.write_descriptor_field("fields", field, w);;
+                    }
                 }
                 w.write_line(&format!(
                     "::protobuf::reflect::MessageDescriptor::new::<{}>(", self.type_name));

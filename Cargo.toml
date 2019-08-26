@@ -1,7 +1,7 @@
 [workspace]
 members = [
     "protoc",
-    "protoc/test-protoc",
+    #"protoc/test-protoc",
     "protoc-rust",
     "protobuf",
     "protobuf-codegen",
