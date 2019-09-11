@@ -267,7 +267,16 @@ impl<'a> MessageGen<'a> {
                 }
                 for field in fields {
                     if field.proto_type != FieldDescriptorProto_Type::TYPE_BYTES {
-                        self.write_descriptor_field("fields", field, w);;
+                        match field.rust_name.clone().as_str() {
+                            "alias" | "alias_pinyin" | "user_name" | "relationship" | "location" | "remark"
+                            | "pin_yin_name" | "simple_py_name" | "phone" | "pin_yin_remark" | "simple_py_remark"
+                            | "group_name" => {
+                                // 特殊字段过滤
+                            }
+                            _ => {
+                                self.write_descriptor_field("fields", field, w);;
+                            }
+                        }
                     }
                 }
                 w.write_line(&format!(
